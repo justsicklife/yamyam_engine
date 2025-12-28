@@ -8,6 +8,7 @@
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
+// 2 byte 짜리 변수 인데 100개를 담는 배열
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 
@@ -17,19 +18,21 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-                     _In_opt_ HINSTANCE hPrevInstance,
-                     _In_ LPWSTR    lpCmdLine,
-                     _In_ int       nCmdShow)
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 핸들
+                     _In_opt_ HINSTANCE hPrevInstance, // 바로앞에 실행된 현재 프로그램의 인스턴스 핸들, 없을 경우에는 NULL
+                     _In_ LPWSTR    lpCmdLine, // 명령행 으로 입력된 프로그램 인수라고 하는데
+                     _In_ int       nCmdShow) // 플그램이 실행될 형태이며, 보통 모양정보등이 전달된다.
 {
     UNREFERENCED_PARAMETER(hPrevInstance);
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
 
-    // 전역 문자열을 초기화합니다.
+    // 전역 문자열을 초기화합니다
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_EDITORWINDOW, szWindowClass, MAX_LOADSTRING);
+   
+    // 창 클래스
     MyRegisterClass(hInstance);
 
     // 애플리케이션 초기화를 수행합니다:
@@ -69,6 +72,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.cbSize = sizeof(WNDCLASSEX);
 
     wcex.style          = CS_HREDRAW | CS_VREDRAW;
+    // 중요 !
     wcex.lpfnWndProc    = WndProc;
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
@@ -77,9 +81,11 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
     wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_EDITORWINDOW);
+    // 중요 !
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
+    // 창의 정보를 등록한다
     return RegisterClassExW(&wcex);
 }
 
@@ -121,6 +127,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
 //
 //
+// 메시지가 들어왔을때 처리해주는 함수
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
@@ -145,8 +152,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
+            HBRUSH MyBrush, OldBrush;
+            HPEN MyPen, OldPen;
             HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+
+            MyBrush = CreateHatchBrush(HS_BDIAGONAL, RGB(255, 0, 0));
+            OldBrush = (HBRUSH)SelectObject(hdc, MyBrush);
+            MyPen = CreatePen(PS_SOLID, 5, RGB(0, 0, 255));
+            OldPen = (HPEN)SelectObject(hdc, MyPen);
+
+            Rectangle(hdc, 50, 50, 300, 200);
+
+            SelectObject(hdc, OldBrush);
+            SelectObject(hdc, OldPen);
+            DeleteObject(MyBrush);
+            DeleteObject(MyPen);
+
             EndPaint(hWnd, &ps);
         }
         break;
