@@ -8,7 +8,7 @@
 
 #include "..\\YamYamEngine_SOURCE\\jhApplication.h"
 
-Application app;
+ya::Application application;
 
 #define MAX_LOADSTRING 100
 
@@ -33,8 +33,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
     UNREFERENCED_PARAMETER(lpCmdLine);
 
     // TODO: 여기에 코드를 입력합니다.
-
-    app.test();
 
     // 전역 문자열을 초기화합니다
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -73,20 +71,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
             }
         }
         else {
-            int a = 0;
-            // 메시지가 없을 경우 여기서 처리
-            // 게임 로직이 들어가면 된다.
+            application.Run();
         }
     }
-
-    //while (GetMessage(&msg, nullptr, 0, 0))
-    //{
-    //    if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-    //    {
-    //        TranslateMessage(&msg);
-    //        DispatchMessage(&msg);
-    //    }
-    //}
 
     return (int) msg.wParam;
 }
@@ -139,6 +126,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
+   application.Initialize(hWnd);
+
    if (!hWnd)
    {
       return FALSE;
@@ -185,22 +174,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_PAINT:
         {
             PAINTSTRUCT ps;
-            HBRUSH MyBrush, OldBrush;
-            HPEN MyPen, OldPen;
             HDC hdc = BeginPaint(hWnd, &ps);
-
-            MyBrush = CreateHatchBrush(HS_BDIAGONAL, RGB(255, 0, 0));
-            OldBrush = (HBRUSH)SelectObject(hdc, MyBrush);
-            MyPen = CreatePen(PS_SOLID, 5, RGB(0, 0, 255));
-            OldPen = (HPEN)SelectObject(hdc, MyPen);
-
-            Rectangle(hdc, 50, 50, 300, 200);
-
-            SelectObject(hdc, OldBrush);
-            SelectObject(hdc, OldPen);
-            DeleteObject(MyBrush);
-            DeleteObject(MyPen);
-
+            
             EndPaint(hWnd, &ps);
         }
         break;
