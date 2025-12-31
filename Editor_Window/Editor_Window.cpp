@@ -8,7 +8,7 @@
 
 #include "..\\YamYamEngine_SOURCE\\jhApplication.h"
 
-ya::Application application;
+jh::Application application;
 
 #define MAX_LOADSTRING 100
 

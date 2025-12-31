@@ -1,6 +1,7 @@
 #include "CommonInclude.h"
+#include "jhGameObject.h"
 
-namespace ya {
+namespace jh {
 	class Application {
 	public:
 		Application();
@@ -19,8 +20,9 @@ namespace ya {
 		HWND mHwnd;
 		HDC mHdc;
 
-		float mSpeed;
-		float mX;
-		float mY;
+		// 플레이어
+		//float mX;
+		//float mY;
+		jh::GameObject mPlayer;
 	};
 }
