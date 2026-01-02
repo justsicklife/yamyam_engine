@@ -31,11 +31,9 @@ namespace jh {
 		static void Initailze();
 		static void Update();
 
-		static bool GetKeyDown(eKeyCode code);
-
-		static bool GetKeyUp(eKeyCode code);
-
-		static bool GetKey(eKeyCode code);
+		static bool GetKeyDown(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Down; }
+		static bool GetKeyUp(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Up; }
+		static bool GetKey(eKeyCode code) { return mKeys[(UINT)code].state == eKeyState::Pressed; }
 
 	private:
 		static std::vector<Key> mKeys;

@@ -1,4 +1,5 @@
 #include "jhApplication.h"
+#include "jhInput.h"
 
 namespace jh {
 
@@ -18,6 +19,8 @@ namespace jh {
 		mHdc = GetDC(hwnd);
 
 		mPlayer.SetPosition(0, 0);
+
+		Input::Initailze();
 	}
 
 	void Application::Run() {
@@ -27,6 +30,9 @@ namespace jh {
 	}
 
 	void Application::Update() {
+		
+		Input::Update();
+
 		mPlayer.Update();
 	}
 
