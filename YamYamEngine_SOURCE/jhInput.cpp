@@ -1,7 +1,7 @@
 #include "jhInput.h"
 
 namespace jh {
-	std::vector<Input::Key> Input::mKeys = {};
+	std::vector<Input::Key> Input::Keys = {};
 
 	int ASCII[(UINT)eKeyCode::End] =
 	{
@@ -12,44 +12,77 @@ namespace jh {
 	};
 
 	void Input::Initailze() {
+		createKeys();
+	}
 
-		mKeys.resize((UINT)eKeyCode::End);
+	void Input::Update() 
+	{
+		updateKeys();
+	}
 
-		for (size_t i = 0; i < (UINT)eKeyCode::End; i++) 
+	// Key code 초기화
+	void Input::createKeys()
+	{
+		for (size_t i = 0; i < (UINT)eKeyCode::End; i++)
 		{
 			Key key = {};
 			key.bPressed = false;
 			key.state = eKeyState::None;
 			key.keyCode = (eKeyCode)i;
-		
-			mKeys.push_back(key);
+
+			Keys.push_back(key);
 		}
 	}
 
-	void Input::Update() {
-		for (size_t i = 0; i < mKeys.size(); i++) 
+	// 각각 Keys 배열안에 들어있는 키를 순회해서 
+	// updateKey(Key& key) 메서드를 각각실행해줌
+	void Input::updateKeys()
+	{
+		std::for_each(Keys.begin(), Keys.end(),
+			[](Key& key) -> void {
+			updateKey(key);
+		});
+	}
+
+	// 키가 눌렸는지 유무를 판단해서 key 값을 
+	// 설정해줌 
+	void Input::updateKey(Input::Key& key) {
+		if (isKeyDown(key.keyCode)) 
 		{
-			// 키가 눌렸다
-			if (GetAsyncKeyState(ASCII[i]) & 0x8000)
-			{
-				if (mKeys[i].bPressed == true) 
-					mKeys[i].state = eKeyState::Pressed;
-				else
-					mKeys[i].state = eKeyState::Down;
-
-				mKeys[i].bPressed = true;
-			}
-			else // 키가 안눌렸다.
-			{
-				// 이전 프레임에 눌려저 있었다. Up
-				if (mKeys[i].bPressed == true)
-					mKeys[i].state = eKeyState::Up;
-				// 이전 프레임도 지금도 돌려져잇지 않다. 
-				else
-					mKeys[i].state = eKeyState::None;
-
-				mKeys[i].bPressed = false;
-			}
+			updateKeyDown(key);
 		}
+		else {
+			updateKeyUp(key);
+		}
+	}
+
+	// 키가 눌리는 함수를 실행하고 
+	// bool 값을 리턴
+	bool Input::isKeyDown(eKeyCode code) {
+		return GetAsyncKeyState(ASCII[(UINT)code]) & 0x8000;
+	}
+
+	// 키가 눌러지면 
+	void Input::updateKeyDown(Input::Key& key) {
+		// 키가 눌러진 상태라면 
+		if (key.bPressed == true)
+			key.state = eKeyState::Pressed;
+		// 키가 처음 눌러진 상태라면
+		else
+			key.state = eKeyState::Down;
+
+		key.bPressed = true;
+	}
+
+	// 키가 벗어나면
+	void Input::updateKeyUp(Input::Key& key) {
+		// 키를 누른상태이면
+		if (key.bPressed == true)
+			key.state = eKeyState::Up;
+		// 키를 땐 상태이면
+		else
+			key.state = eKeyState::None;
+	
+		key.bPressed = false;
 	}
 }

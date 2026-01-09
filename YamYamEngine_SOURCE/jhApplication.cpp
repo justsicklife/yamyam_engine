@@ -1,5 +1,6 @@
 #include "jhApplication.h"
 #include "jhInput.h"
+#include "jhTime.h"
 
 namespace jh {
 
@@ -21,17 +22,20 @@ namespace jh {
 		mPlayer.SetPosition(0, 0);
 
 		Input::Initailze();
+		Time::Initailze();
 	}
 
 	void Application::Run() {
+		
 		Update();
 		LateUpdate();
 		Render();
 	}
 
 	void Application::Update() {
-		
+
 		Input::Update();
+		Time::Update();
 
 		mPlayer.Update();
 	}
@@ -42,6 +46,7 @@ namespace jh {
 	}
 
 	void Application::Render() {
+		Time::Render(mHdc);
 		mPlayer.Render(mHdc);
 	}
 }

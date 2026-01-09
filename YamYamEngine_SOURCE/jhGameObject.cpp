@@ -1,5 +1,6 @@
 #include "jhGameObject.h"
 #include "jhInput.h"
+#include "jhTime.h"
 
 namespace jh 
 {
@@ -12,20 +13,23 @@ namespace jh
 	}
 
 	void GameObject::Update() {
-		if (Input::GetKey(eKeyCode::Left)) {
-			mX -= 0.01f;
+		
+		const int speed = 100.0f;
+
+		if (Input::GetKey(eKeyCode::A)) {
+			mX -= speed * Time::DeltaTime();
 		}
 
-		if (Input::GetKey(eKeyCode::Right)) {
-			mX += 0.01f;
+		if (Input::GetKey(eKeyCode::D)) {
+			mX += speed * Time::DeltaTime();
 		}
 
-		if (Input::GetKey(eKeyCode::Up)) {
-			mY -= 0.01f;
+		if (Input::GetKey(eKeyCode::W)) {
+			mY -= speed * Time::DeltaTime();
 		}
 
-		if (Input::GetKey(eKeyCode::Down)) {
-			mY += 0.01f;
+		if (Input::GetKey(eKeyCode::S)) {
+			mY += speed * Time::DeltaTime();
 		}
 	}
 
