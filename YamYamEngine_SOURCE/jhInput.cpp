@@ -11,7 +11,7 @@ namespace jh {
 		VK_LEFT,VK_RIGHT,VK_DOWN,VK_UP,
 	};
 
-	void Input::Initailze() {
+	void Input::Initailize() {
 		createKeys();
 	}
 

@@ -29,7 +29,7 @@ namespace jh {
 			bool bPressed;
 		};
 
-		static void Initailze();
+		static void Initailize();
 		static void Update();
 
 		static bool GetKeyDown(eKeyCode code) { return Keys[(UINT)code].state == eKeyState::Down; }

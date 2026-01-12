@@ -7,7 +7,7 @@ namespace jh {
 		Application();
 		~Application();
 
-		void Initialize(HWND hwnd);
+		void Initialize(HWND hwnd,UINT widht,UINT height);
 		void Run();
 
 		void Update();
@@ -20,9 +20,13 @@ namespace jh {
 		HWND mHwnd;
 		HDC mHdc;
 
+		HDC mBackHdc;
+		HBITMAP mBackBitmap;
+
+		UINT mWidth;
+		UINT mHeight;
+
 		// 플레이어
-		//float mX;
-		//float mY;
 		jh::GameObject mPlayer;
 	};
 }

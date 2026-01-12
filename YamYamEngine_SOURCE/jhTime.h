@@ -3,7 +3,7 @@
 namespace jh {
 	class Time {
 	public:
-		static void Initailze();
+		static void Initailize();
 		static void Update();
 		static void Render(HDC hdc);
 

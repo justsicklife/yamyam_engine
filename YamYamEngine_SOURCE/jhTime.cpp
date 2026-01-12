@@ -13,7 +13,7 @@ namespace jh {
 
 	// CPU 타이머 주파수 저장
 	// 첫 프레임 기준 시간 설정
-	void Time::Initailze() {
+	void Time::Initailize() {
 
 		// 1 초에 카운터 수치
 		QueryPerformanceFrequency(&CpuFrequency);
