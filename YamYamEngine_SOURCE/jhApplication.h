@@ -1,5 +1,5 @@
 #include "CommonInclude.h"
-#include "jhGameObject.h"
+#include "jhPlayer.h"
 
 namespace jh {
 	class Application {
@@ -27,6 +27,6 @@ namespace jh {
 		UINT mHeight;
 
 		// 플레이어
-		jh::GameObject mPlayer;
+		jh::Player mPlayer;
 	};
 }

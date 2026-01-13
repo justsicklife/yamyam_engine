@@ -49,7 +49,7 @@ namespace jh
 
 		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
 
-		Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		Rectangle(hdc, 50 + mX,  50 + mY, 100 + mX, 100 + mY);
 
 		SelectObject(hdc, oldBrush);
 		DeleteObject(blueBrush);

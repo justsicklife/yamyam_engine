@@ -6,7 +6,7 @@ namespace jh {
 		GameObject();
 		~GameObject();
 
-		void Update();
+		virtual void Update();
 		void LateUpdate();
 		void Render(HDC hdc);
 
