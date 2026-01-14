@@ -1,10 +1,21 @@
 #include "jhGameObject.h"
 #include "jhInput.h"
 #include "jhTime.h"
+#include <gdiplus.h>
+
+using namespace Gdiplus;
+
+#pragma comment(lib,"Gdiplus.lib")
+
+ULONG_PTR gdiplusToken;
+
+GdiplusStartupInput gdiplusStartupInput;
 
 namespace jh 
 {
-	GameObject::GameObject() {
+	GameObject::GameObject():
+		mX(0),
+		mY(0){
 
 	}
 
@@ -39,20 +50,12 @@ namespace jh
 
 	void GameObject::Render(HDC hdc) {
 
-		// 파랑 브러쉬 생성
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
+		GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 
-		// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환값 반환
-		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
+		Graphics graphics(hdc);
+		Image image(L"Resources/baba.png");
+		graphics.DrawImage(&image, 24+mX, 24+mY);
 
-		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
-
-		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-
-		Rectangle(hdc, 50 + mX,  50 + mY, 100 + mX, 100 + mY);
-
-		SelectObject(hdc, oldBrush);
-		DeleteObject(blueBrush);
-		DeleteObject(redPen);
+		//Rectangle(hdc, 50 + mX,  50 + mY, 100 + mX, 100 + mY);
 	}
 }

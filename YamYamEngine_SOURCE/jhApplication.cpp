@@ -1,6 +1,8 @@
+#include "CommonInclude.h"
 #include "jhApplication.h"
 #include "jhInput.h"
 #include "jhTime.h"
+#include "jhMap.h"
 
 namespace jh {
 
@@ -42,12 +44,18 @@ namespace jh {
 		// 백버퍼를 가르킬 DC 생성
 		mBackHdc = CreateCompatibleDC(mHdc);
 
+		HBRUSH BlackBrush = CreateSolidBrush(RGB(0, 0, 0));
+
+		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, BlackBrush);
+
 		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
 
 		mPlayer.SetPosition(0, 0);
 
+		Map::Initailize();
 		Input::Initailize();
 		Time::Initailize();
+
 	}
 
 	void Application::Run() {
