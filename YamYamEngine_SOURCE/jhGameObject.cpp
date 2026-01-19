@@ -4,7 +4,9 @@
 
 namespace jh 
 {
-	GameObject::GameObject() {
+	GameObject::GameObject() : 
+		mX(0),
+		mY(0){
 
 	}
 
