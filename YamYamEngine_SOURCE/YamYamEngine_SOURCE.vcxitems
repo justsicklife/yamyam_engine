@@ -16,14 +16,20 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhInput.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhScene.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhSceneManager.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhTime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)jhApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhInput.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhScene.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhTime.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhSceneManager.cpp" />
   </ItemGroup>
 </Project>

@@ -4,9 +4,9 @@
 
 namespace jh 
 {
-	GameObject::GameObject() : 
+	GameObject::GameObject() :
 		mX(0),
-		mY(0){
+		mY(0) {
 
 	}
 
@@ -42,16 +42,16 @@ namespace jh
 	void GameObject::Render(HDC hdc) {
 
 		// 파랑 브러쉬 생성
-		HBRUSH blueBrush = CreateSolidBrush(RGB(0, 0, 255));
+		HBRUSH blueBrush = CreateSolidBrush(RGB(rand() % 255, rand() % 255, rand() % 255));
 
 		// 파랑 브러쉬 DC에 선택 그리고 흰색 브러쉬 반환값 반환
 		HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, blueBrush);
 
-		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(255, 0, 0));
+		HPEN redPen = CreatePen(PS_SOLID, 2, RGB(rand() % 255, rand() % 255, rand() % 255));
 
 		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
 
-		Rectangle(hdc, 100 + mX, 100 + mY, 200 + mX, 200 + mY);
+		Ellipse(hdc, mX, mY, 100 + mX, 100 + mY);
 
 		SelectObject(hdc, oldBrush);
 		DeleteObject(blueBrush);

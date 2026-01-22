@@ -1,6 +1,7 @@
 #include "jhApplication.h"
 #include "jhInput.h"
 #include "jhTime.h"
+#include "jhSceneManager.h"
 
 namespace jh {
 
@@ -21,10 +22,10 @@ namespace jh {
 
 	void Application::Initialize(HWND hwnd, UINT width, UINT height) {
 		adjustWindowRect(hwnd, width, height);
-
 		createBuffer(width, height);
-
 		initializeEtc();
+
+		SceneManager::Initialize();
 	}
 
 	void Application::Run() {
@@ -38,6 +39,8 @@ namespace jh {
 
 		Input::Update();
 		Time::Update();
+
+		SceneManager::Update();
 	}
 
 	void Application::LateUpdate() 
@@ -49,6 +52,8 @@ namespace jh {
 		clearRenderTarget();
 
 		Time::Render(mBackHdc);
+		SceneManager::Render(mBackHdc);
+
 		copyRenderTarget(mBackHdc,mHdc);
 	}
 

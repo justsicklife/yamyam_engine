@@ -7,6 +7,7 @@
 //#pragma comment (lib,"..\\x64\\Debug\\YamYamEngine_Window.lib")
 
 #include "..\\YamYamEngine_SOURCE\\jhApplication.h"
+#include "..\\YamYamEngine_Window\\jhLoadScene.h"
 
 jh::Application application;
 
@@ -138,6 +139,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   // load scenes
+   jh::LoadScenes();
 
    return TRUE;
 }
