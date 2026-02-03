@@ -12,9 +12,15 @@
     <ClInclude Include="jhPlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="jhEndScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jhPlayScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="jhEndScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
   </ItemGroup>

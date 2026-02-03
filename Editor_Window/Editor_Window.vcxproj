@@ -145,12 +145,12 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Editor_Window.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\YamYamEngine_Window\YamYamEngine_Window.vcxproj">
       <Project>{4894d316-c070-4026-a07b-49dbd79acbf8}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Editor_Window.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

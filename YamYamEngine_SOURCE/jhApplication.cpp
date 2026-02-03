@@ -57,6 +57,7 @@ namespace jh {
 		copyRenderTarget(mBackHdc,mHdc);
 	}
 
+	// 잔상 안남게 지우기
 	void Application::clearRenderTarget() {
 		// clear 
 		Rectangle(mBackHdc, -1, -1, 1601, 901);
@@ -68,6 +69,7 @@ namespace jh {
 			, source, 0, 0, SRCCOPY);
 	}
 
+	// 클라이언트 영역이 정확히 가로 x 세로 크기로 셋팅 해주는 메서드
 	void Application::adjustWindowRect(HWND hwnd,UINT width,UINT height) {
 		mHwnd = hwnd;
 		mHdc = GetDC(hwnd);
