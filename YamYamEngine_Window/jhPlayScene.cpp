@@ -1,5 +1,8 @@
 #include "jhPlayScene.h"
 #include "jhGameObject.h"
+#include "jhPlayer.h"
+#include "jhTransform.h"
+#include "jhSpriteRenderer.h"
 
 namespace jh {
 
@@ -12,10 +15,50 @@ namespace jh {
 	}
 
 	void PlayScene::Initialize() {
-		for (size_t i = 0; i < 100; i++) {
-			GameObject* obj = new GameObject();
-			obj->SetPosition(rand() % 1600, rand() % 900);
-			AddGameObject(obj);
+
+		{
+			Player* pl = new Player();
+			Transform* tr
+				= pl->AddComponent<Transform>();
+			tr->SetPos(800, 450);
+
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr
+				= pl->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+
+			AddGameObject(pl);
+		}
+
+		{
+			Player* pl = new Player();
+			Transform* tr
+				= pl->AddComponent<Transform>();
+			tr->SetPos(300, 450);
+
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr
+				= pl->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+
+			AddGameObject(pl);
+		}
+
+		{
+			Player* pl = new Player();
+			Transform* tr
+				= pl->AddComponent<Transform>();
+			tr->SetPos(100, 650);
+
+			tr->SetName(L"TR");
+
+			SpriteRenderer* sr
+				= pl->AddComponent<SpriteRenderer>();
+			sr->SetName(L"SR");
+
+			AddGameObject(pl);
 		}
 	}
 

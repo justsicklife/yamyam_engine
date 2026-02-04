@@ -134,10 +134,12 @@
   <ItemGroup>
     <ClInclude Include="jhEndScene.h" />
     <ClInclude Include="jhLoadScene.h" />
+    <ClInclude Include="jhPlayer.h" />
     <ClInclude Include="jhPlayScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jhEndScene.cpp" />
+    <ClCompile Include="jhPlayer.cpp" />
     <ClCompile Include="jhPlayScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

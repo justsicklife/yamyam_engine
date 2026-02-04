@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonInclude.h"
+#include "jhComponent.h"
 
 namespace jh {
 	class GameObject {
@@ -7,22 +8,34 @@ namespace jh {
 		GameObject();
 		~GameObject();
 
-		void Update();
-		void LateUpdate();
-		void Render(HDC hdc);
+		virtual void Initialize();
+		virtual void Update();
+		virtual void LateUpdate();
+		virtual void Render(HDC hdc);
 
-		void SetPosition(float x, float y) {
-			mX = x;
-			mY = y;
+		template <typename T>
+		T* AddComponent()
+		{
+			T* comp = new T();
+			comp->SetOwner(this);
+			mComponents.push_back(comp);
+
+			return comp;
 		}
 
-		float GetPositionX() { return mX; }
-		float GetPositionY() { return mY; }
-
+		template <typename T>
+		T* GetComponent()
+		{
+			T* component = nullptr;
+			for (Component* comp : mComponents) {
+				component = dynamic_cast<T*>(comp);
+				if (component)
+					break;
+			}
+			return component;
+		}
 	private:
-		// 게임오브젝트의 좌표
-		float mX;
-		float mY;
+		std::vector<Component*> mComponents;
 	};
 
 }

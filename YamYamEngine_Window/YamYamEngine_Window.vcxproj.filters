@@ -4,6 +4,9 @@
     <Filter Include="Scenes">
       <UniqueIdentifier>{0e3133c3-74e7-459b-a147-d0545d8e4e74}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{0b30fd42-9ad7-41f5-9151-d0da864a2473}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="jhLoadScene.h">
@@ -15,6 +18,9 @@
     <ClInclude Include="jhEndScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="jhPlayer.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jhPlayScene.cpp">
@@ -22,6 +28,9 @@
     </ClCompile>
     <ClCompile Include="jhEndScene.cpp">
       <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="jhPlayer.cpp">
+      <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
