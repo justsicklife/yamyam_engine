@@ -1,5 +1,7 @@
 #pragma once
 #include "jhComponent.h"
+#include "jhEntity.h"
+#include <gdiplus.h>
 
 namespace jh {
 	
@@ -13,7 +15,11 @@ namespace jh {
 		void Update()  override;
 		void LateUpdate()  override;
 		void Render(HDC hdc)  override;
-	private:
+		void ImageLoad(const std::wstring& path);
 
+	private :
+		Gdiplus::Image* mImage;
+		UINT mWidth;
+		UINT mHeight;
 	};
 }

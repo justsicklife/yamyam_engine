@@ -1,0 +1,1 @@
+#include "jhResources.h"

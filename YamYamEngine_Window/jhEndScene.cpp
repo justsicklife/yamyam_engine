@@ -17,47 +17,6 @@ namespace jh {
 
 	void EndScene::Initialize() {
 
-		{
-			Player* p1 = new Player();
-			Transform* tr
-				= p1->AddComponent<Transform>();
-			tr->SetPos(800, 450);
-		
-			tr->SetName(L"SR");
-
-			SpriteRenderer* sr
-				= p1->AddComponent<SpriteRenderer>();
-
-			AddGameObject(p1);
-		}
-
-		{
-			Player* p1 = new Player();
-			Transform* tr
-				= p1->AddComponent<Transform>();
-			tr->SetPos(300, 450);
-
-			tr->SetName(L"SR");
-
-			SpriteRenderer* sr
-				= p1->AddComponent<SpriteRenderer>();
-
-			AddGameObject(p1);
-		}
-
-		{
-			Player* p1 = new Player();
-			Transform* tr
-				= p1->AddComponent<Transform>();
-			tr->SetPos(100, 650);
-
-			tr->SetName(L"SR");
-
-			SpriteRenderer* sr
-				= p1->AddComponent<SpriteRenderer>();
-
-			AddGameObject(p1);
-		}
 	}
 
 	void EndScene::Update() {

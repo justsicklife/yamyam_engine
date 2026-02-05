@@ -17,48 +17,21 @@ namespace jh {
 	void PlayScene::Initialize() {
 
 		{
-			Player* pl = new Player();
+			Player* bg = new Player();
 			Transform* tr
-				= pl->AddComponent<Transform>();
-			tr->SetPos(800, 450);
+				= bg->AddComponent<Transform>();
+			tr->SetPos(Vector2(0, 0));
 
 			tr->SetName(L"TR");
 
 			SpriteRenderer* sr
-				= pl->AddComponent<SpriteRenderer>();
+				= bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
+			sr->ImageLoad(
+				L"D:/WinProj/YamYamEngine/Resources/CloudOcean.png"
+			);
 
-			AddGameObject(pl);
-		}
-
-		{
-			Player* pl = new Player();
-			Transform* tr
-				= pl->AddComponent<Transform>();
-			tr->SetPos(300, 450);
-
-			tr->SetName(L"TR");
-
-			SpriteRenderer* sr
-				= pl->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-
-			AddGameObject(pl);
-		}
-
-		{
-			Player* pl = new Player();
-			Transform* tr
-				= pl->AddComponent<Transform>();
-			tr->SetPos(100, 650);
-
-			tr->SetName(L"TR");
-
-			SpriteRenderer* sr
-				= pl->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-
-			AddGameObject(pl);
+			AddGameObject(bg);
 		}
 	}
 

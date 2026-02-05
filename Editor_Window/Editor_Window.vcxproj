@@ -141,6 +141,7 @@
     <ResourceCompile Include="Editor_Window.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Resources\CloudOcean.png" />
     <Image Include="Editor_Window.ico" />
     <Image Include="small.ico" />
   </ItemGroup>

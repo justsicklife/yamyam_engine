@@ -1,4 +1,4 @@
-﻿// Editor_Window.cpp : 애플리케이션에 대한 진입점을 정의합니다.
+﻿// Editor_ow.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
 
 #include "framework.h"
@@ -8,6 +8,9 @@
 
 #include "..\\YamYamEngine_SOURCE\\jhApplication.h"
 #include "..\\YamYamEngine_Window\\jhLoadScene.h"
+
+ULONG_PTR gpToken;
+Gdiplus::GdiplusStartupInput gpsi;
 
 jh::Application application;
 
@@ -76,6 +79,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 인스턴스 
         }
     }
 
+    Gdiplus::GdiplusShutdown(gpToken);
+
     return (int) msg.wParam;
 }
 
@@ -139,6 +144,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
+
+   Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    // load scenes
    jh::LoadScenes();

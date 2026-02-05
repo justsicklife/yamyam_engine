@@ -8,9 +8,9 @@ namespace jh
 	void LoadScenes() 
 	{
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
-		SceneManager::CreateScene<EndScene>(L"EndScene");
+		//SceneManager::CreateScene<EndScene>(L"EndScene");
 		//SceneManager::CreateScene<TitleScene>(L"PlayScene");
 
-		SceneManager::LoadScene(L"EndScene");
+		SceneManager::LoadScene(L"PlayScene");
 	}
 }
