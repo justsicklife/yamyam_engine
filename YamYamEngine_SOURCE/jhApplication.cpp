@@ -96,6 +96,13 @@ namespace jh {
 
 		HBITMAP oldBitmap = (HBITMAP)SelectObject(mBackHdc, mBackBitmap);
 		DeleteObject(oldBitmap);
+
+		HBRUSH blackBrush = (HBRUSH)GetStockObject(BLACK_BRUSH);
+		HBRUSH oldBrush = (HBRUSH)SelectObject(mBackHdc, blackBrush);
+
+		PatBlt(mBackHdc, 0, 0, width, height, PATCOPY);
+
+		SelectObject(mBackHdc, blackBrush);
 	}
 
 	void Application::initializeEtc() {

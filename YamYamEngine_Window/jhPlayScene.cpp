@@ -28,7 +28,7 @@ namespace jh {
 				= bg->AddComponent<SpriteRenderer>();
 			sr->SetName(L"SR");
 			sr->ImageLoad(
-				L"D:/WinProj/YamYamEngine/Resources/CloudOcean.png"
+				L"D:/WinProj/YamYamEngine/Resources/baba.png"
 			);
 
 			AddGameObject(bg);
