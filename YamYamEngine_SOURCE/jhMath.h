@@ -17,5 +17,12 @@ namespace jh::math {
 			, y(_y)
 		{
 		}
+
+		static Vector2 Lerp(Vector2 start , Vector2 target , float t) {
+
+			return Vector2( 
+				start.x * (1 - t) + target.x * t,
+				start.y * (1 - t) + target.y * t);
+		}
 	};
 }
