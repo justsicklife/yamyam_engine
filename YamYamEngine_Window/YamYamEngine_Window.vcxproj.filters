@@ -21,6 +21,9 @@
     <ClInclude Include="jhPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="jhMap.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jhPlayScene.cpp">
@@ -30,6 +33,9 @@
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="jhPlayer.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="jhMap.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>

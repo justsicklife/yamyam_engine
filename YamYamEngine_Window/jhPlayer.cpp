@@ -16,7 +16,7 @@ namespace jh
 	void Player::Update()
 	{
 		Transform* playerTranform  = this->GetComponent<Transform>();
-		Vector2 pos = playerTranform->GetPosition();
+		//Vector2 pos = playerTranform->GetPosition();
 		//Vector2 nPos = Vector2(100, 0);
 
 		//elapsed += Time::DeltaTime();
@@ -25,7 +25,7 @@ namespace jh
 		//if (t > 1.0f) t = 1.0f;
 
 		//Vector2 curPos = Vector2::Lerp(pos, nPos, t);
-		// 
+		//
 		//playerTranform->SetPos(curPos);
 	}
 

@@ -3,18 +3,18 @@
 namespace jh::math {
 	struct Vector2
 	{
-		float x;
 		float y;
+		float x;
 
 		Vector2()
-			: x(0.0f)
-			, y(0.0f) {
+			: y(0.0f)
+			, x(0.0f) {
 
 		}
 
 		Vector2(float _x, float _y)
-			: x(_x)
-			, y(_y)
+			: y(_x)
+			, x(_y)
 		{
 		}
 
