@@ -3,7 +3,8 @@
 #include "jhPlayer.h"
 #include "jhTransform.h"
 #include "jhSpriteRenderer.h"
-#include "jhMap.h"
+#include "jhResources.h"
+#include "jhEnums.h"
 
 namespace jh {
 
@@ -25,55 +26,30 @@ namespace jh {
 
 			tr->SetName(L"TR");
 
+			//SpriteRenderer* sr
+			//	= bg->AddComponent<SpriteRenderer>();
+			//sr->SetName(L"SR");
+			//sr->ImageLoad(
+			//	L"D:/WinProj/YamYamEngine/Resources/you.png"
+			//);
+
 			SpriteRenderer* sr
 				= bg->AddComponent<SpriteRenderer>();
-			sr->SetName(L"SR");
-			sr->ImageLoad(
-				L"D:/WinProj/YamYamEngine/Resources/you.png"
-			);
+
+			sr->SetName(L"AA");
+
+			wstring fullPath = Resources::path;
+			// 2. Map에서 데이터를 찾아 합치기
+			auto it = Resources::ObjectImagePath.find(ObjectType::Baba);
+
+			if (it != Resources::ObjectImagePath.end()) {
+				// std::wstring은 + 연산자로 문자열을 합칠 수 있습니다.
+				fullPath += it->second;
+			}
+
+			sr->ImageLoad(fullPath);
 
 			AddGameObject(bg);
-		}
-
-		{
-			Map* map = new Map();
-
-			vector<vector<ObjectType>>& mapArray = map->GetMapArray();
-			
-			// 어떻게 해야할까?
-
-			for (int y = 0; y < map->height; y++) {
-				for (int x = 0; x < map->width; x++) {
-					ObjectType type = mapArray[y][x];
-
-					auto iter = map->ObjectImagePath.find(type);
-					if (iter == map->ObjectImagePath.end())
-						continue;
-
-					const wchar_t* imageName = iter->second;
-
-					const wchar_t* path = map->GetPath();
-					
-					std::wstring realPath = std::wstring(path) + imageName;
-
-					Player * player = new Player();
-					
-					Transform* tr = player->AddComponent<Transform>();
-
-					Vector2 pos = Vector2(y * map->TileSize, x * map->TileSize);
-
-					tr->SetPos(pos);
-
-					SpriteRenderer* sr
-						= player->AddComponent<SpriteRenderer>();
-
-					sr->SetName(L"baba");
-					sr->ImageLoad(realPath);
-
-					AddGameObject(player);
-
-				}
-			}
 		}
 	}
 
