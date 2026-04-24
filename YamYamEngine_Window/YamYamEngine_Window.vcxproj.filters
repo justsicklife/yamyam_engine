@@ -1,21 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Scenes">
-      <UniqueIdentifier>{0e3133c3-74e7-459b-a147-d0545d8e4e74}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents">
-      <UniqueIdentifier>{0b30fd42-9ad7-41f5-9151-d0da864a2473}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="jhLoadScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="jhPlayScene.h">
+    <ClInclude Include="jhTitleScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="jhEndScene.h">
+    <ClInclude Include="jhPlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
     <ClInclude Include="jhPlayer.h">
@@ -26,11 +18,19 @@
     <ClCompile Include="jhPlayScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="jhEndScene.cpp">
+    <ClCompile Include="jhTitleScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
     <ClCompile Include="jhPlayer.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{cd6d23d1-a486-4082-9ad1-74dbd32a73c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents">
+      <UniqueIdentifier>{bc944e4e-4b8c-4e9a-9729-20e561247051}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

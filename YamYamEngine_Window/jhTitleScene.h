@@ -1,16 +1,18 @@
-#include "..\\YamYamEngine_SOURCE\jhScene.h"
 #pragma once
+#include "..\\YamYamEngine_SOURCE\\jhScene.h"
 
-namespace jh {
-	class EndScene : public Scene {
+namespace jh {	
+	class TitleScene : public Scene
+	{
 	public:
-		EndScene();
-		~EndScene();
+		TitleScene();
+		~TitleScene();
 
 		void Initialize() override;
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 	private :
+
 	};
 }

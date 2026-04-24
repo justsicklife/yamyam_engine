@@ -7,7 +7,7 @@
 //#pragma comment (lib,"..\\x64\\Debug\\YamYamEngine_Window.lib")
 
 #include "..\\YamYamEngine_SOURCE\\jhApplication.h"
-#include "..\\YamYamEngine_Window\\jhLoadScene.h"
+#include "..\\YamYamEngine_Window\\Scenes\jhLoadScene.h"
 
 ULONG_PTR gpToken;
 Gdiplus::GdiplusStartupInput gpsi;

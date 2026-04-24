@@ -1,16 +1,15 @@
 #pragma once
 #include "..\\YamYamEngine_SOURCE\\jhSceneManager.h"
 #include "jhPlayScene.h"
-#include "jhEndScene.h"
+#include "jhTitleScene.h"
 
 namespace jh
 {
 	void LoadScenes() 
 	{
+		SceneManager::CreateScene<TitleScene>(L"TitleScene");
 		SceneManager::CreateScene<PlayScene>(L"PlayScene");
-		//SceneManager::CreateScene<EndScene>(L"EndScene");
-		//SceneManager::CreateScene<TitleScene>(L"PlayScene");
 
-		SceneManager::LoadScene(L"PlayScene");
+		SceneManager::LoadScene(L"TitleScene");
 	}
 }
