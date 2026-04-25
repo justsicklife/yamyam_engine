@@ -24,6 +24,13 @@ namespace jh {
 		}
 
 		static Scene* LoadScene(const std::wstring& name) {
+
+			// 전에 씬이 존재한다면
+			if (mActiveScene) {
+				// 전에 씬 에서 나가기
+				mActiveScene->OnExit();
+			}
+
 			std::map<std::wstring, Scene*>::iterator iter
 				= mScene.find(name);
 
@@ -34,6 +41,9 @@ namespace jh {
 			// iter -> second (key : value) 
 			// second 는 value 를 뜻함
 			mActiveScene = iter->second;
+
+			// 현재 씬 입장
+			mActiveScene->OnEnter();
 
 			return iter->second;
 		}

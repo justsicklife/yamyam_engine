@@ -2,6 +2,7 @@
 #include "CommonInclude.h"
 #include "jhEntity.h"
 #include "jhGameObject.h"
+#include "jhLayer.h"
 
 namespace jh {
 	class Scene : public Entity{
@@ -14,8 +15,16 @@ namespace jh {
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
 
-		void AddGameObject(GameObject* gameObject);
+		// Scene 이 시작 할때 실행되는 메서드 
+		// 예 : 몬스터 위치 초기화
+		virtual void OnEnter();
+		// Scene 에서 나갈때 실행되는 메서드
+		// 예 : 사용하지 않는 몬스터 삭제
+		virtual void OnExit();
+
+		void AddGameObject(GameObject* gameObj,eLayerType type);
+
 	private :
-		std::vector<GameObject*> mGameObjects;
+		std::vector<Layer*> mLayers;
 	};
 }

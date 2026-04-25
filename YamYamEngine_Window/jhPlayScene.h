@@ -11,7 +11,10 @@ namespace jh {
 		void Update() override;
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
-	private :
 
+		void OnEnter() override;
+		void OnExit() override;
+	private :
+		 class Player* bg;
 	};
 }

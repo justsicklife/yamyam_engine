@@ -3,6 +3,8 @@
 #include "jhPlayer.h"
 #include "jhTransform.h"
 #include "jhSpriteRenderer.h"
+#include "jhInput.h"
+#include "jhSceneManager.h"
 
 namespace jh {
 
@@ -17,7 +19,7 @@ namespace jh {
 	void PlayScene::Initialize() {
 
 		{
-			Player* bg = new Player();
+			bg = new Player();
 			Transform* tr
 				= bg->AddComponent<Transform>();
 			tr->SetPos(Vector2(0, 0));
@@ -31,7 +33,7 @@ namespace jh {
 				L"D:/WinProj/YamYamEngine/Resources/CloudOcean.png"
 			);
 
-			AddGameObject(bg);
+			AddGameObject(bg, eLayerType::BackGround);
 		}
 	}
 
@@ -42,10 +44,26 @@ namespace jh {
 	
 	void PlayScene::LateUpdate() {
 		Scene::LateUpdate();
-	}
+
+		if (Input::GetKeyDown(eKeyCode::N)) {
+			SceneManager::LoadScene(L"TitleScene");
+		}
+ 	}
 
 	void PlayScene::Render(HDC hdc) {
 		Scene::Render(hdc);
+	}
+
+	void PlayScene::OnEnter()
+	{
+		
+	}
+
+	void PlayScene::OnExit()
+	{
+		Transform* tr
+			= bg->GetComponent<Transform>();
+		tr->SetPos(Vector2(0, 0));
 	}
 
 }
