@@ -22,6 +22,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jhInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhLayer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhMath.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhResource.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhScene.h" />

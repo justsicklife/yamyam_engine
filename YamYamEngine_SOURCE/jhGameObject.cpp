@@ -1,11 +1,12 @@
 #include "jhGameObject.h"
 #include "jhInput.h"
 #include "jhTime.h"
+#include "jhTransform.h"
 
 namespace jh 
 {
 	GameObject::GameObject() {
-
+		initializeTransform();
 	}
 
 	GameObject::~GameObject() {
@@ -38,5 +39,10 @@ namespace jh
 		for (Component* comp : mComponents) {
 			comp->Render(hdc);
 		}
+	}
+
+	void GameObject::initializeTransform()
+	{
+		AddComponent<Transform>();
 	}
 }

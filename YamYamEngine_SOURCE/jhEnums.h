@@ -1,6 +1,6 @@
 #pragma once
 
-namespace jh {
+namespace jh::enums {
 	enum class eLayerType {
 		None,
 		BackGround,
