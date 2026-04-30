@@ -43,6 +43,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jhLayer.cpp">
       <Filter>Layer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhTexture.cpp">
+      <Filter>Resource\Texture</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)jhSceneManager.h">
@@ -96,6 +99,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jhObject.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhTexture.h">
+      <Filter>Resource\Texture</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -121,6 +127,9 @@
     </Filter>
     <Filter Include="High Level Interface">
       <UniqueIdentifier>{cf8da5a2-a353-4837-b8d0-75c09ec2c773}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource\Texture">
+      <UniqueIdentifier>{6b111601-dabf-4f21-ac30-7024951bdfe9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

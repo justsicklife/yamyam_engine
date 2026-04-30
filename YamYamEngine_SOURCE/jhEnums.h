@@ -9,4 +9,11 @@ namespace jh::enums {
 		Player,
 		Max = 16,
 	};
+
+	enum class eResourceType {
+		Textrue,
+		AudioClip,
+		Prefab,
+		End,
+	};
 }
