@@ -13,6 +13,7 @@
     <ClInclude Include="jhPlayer.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="jhLoadResources.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jhPlayScene.cpp">

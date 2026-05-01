@@ -136,6 +136,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="jhLoadResources.h" />
     <ClInclude Include="jhLoadScene.h" />
     <ClInclude Include="jhPlayer.h" />
     <ClInclude Include="jhPlayScene.h" />

@@ -8,6 +8,7 @@
 
 #include "..\\YamYamEngine_SOURCE\\jhApplication.h"
 #include "..\\YamYamEngine_Window\\jhLoadScene.h"
+#include "..\\YamYamEngine_Window\\jhLoadResources.h"
 
 ULONG_PTR gpToken;
 Gdiplus::GdiplusStartupInput gpsi;
@@ -148,6 +149,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    Gdiplus::GdiplusStartup(&gpToken, &gpsi, NULL);
 
    // load scenes
+   jh::LoadResouces();
    jh::LoadScenes();
 
    return TRUE;
