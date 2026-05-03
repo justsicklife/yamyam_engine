@@ -1,5 +1,9 @@
 #pragma once
 #include "..\\YamYamEngine_SOURCE\\jhScene.h"
+#include <vector>
+#include <deque>
+#include "..\\YamYamEngine_SOURCE\\jhMath.h"
+#include "jhBackGround.h"
 
 namespace jh {
 	class PlayScene : public Scene {
@@ -15,6 +19,8 @@ namespace jh {
 		void OnEnter() override;
 		void OnExit() override;
 	private :
-		 class Player* bg;
+		 class Apple* apple;
+		 std::deque<math::Vector2*> mBody;
+		 BackGround* background;
 	};
 }

@@ -1,6 +1,6 @@
 #include "jhPlayScene.h"
 #include "jhGameObject.h"
-#include "jhPlayer.h"
+#include "jhApple.h"
 #include "jhTransform.h"
 #include "jhSpriteRenderer.h"
 #include "jhInput.h"
@@ -8,6 +8,8 @@
 #include "jhObject.h"
 #include "jhTexture.h"
 #include "jhResources.h"
+#include "jhTile.h"
+#include <vector>
 
 namespace jh {
 
@@ -23,14 +25,14 @@ namespace jh {
 		{
 			// 게임 오브젝트 만들기 전에 리소스들 전부 Load 해두면 좋다.
 
-			bg = object::Instantiate<Player>
-				(enums::eLayerType::BackGround,Vector2(100.0f,100.0f));
+			apple = object::Instantiate<Apple>
+				(enums::eLayerType::Player,Vector2(0.0f,0.0f));
 		
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
-			
-			graphcis::Texture* bg = Resources::Find<graphcis::Texture>(L"BG");
+			apple->Initialize();
 
-			sr->SetTexture(bg);
+			background = object::Instantiate<BackGround>(enums::eLayerType::BackGround, Vector2(50.0f, 50.0f));
+
+			background->Initialize();
 
 		}
 	}

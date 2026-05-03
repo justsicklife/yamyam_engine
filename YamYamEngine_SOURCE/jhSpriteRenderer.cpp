@@ -56,6 +56,10 @@ namespace jh {
 		else if (mTexture->GetTextureType()
 			== graphcis::Texture::eTextureType::Png) {
 			Gdiplus::Graphics graphcis(hdc);
+
+			// 고품질 보간 모드 설정
+			graphcis.SetInterpolationMode(Gdiplus::InterpolationModeNearestNeighbor);
+
 			graphcis.DrawImage(mTexture->GetImage()
 				, Gdiplus::Rect(pos.x, pos.y,
 					mTexture->GetWidth() * mSize.x,

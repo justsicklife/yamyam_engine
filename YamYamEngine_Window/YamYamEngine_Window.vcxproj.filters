@@ -10,10 +10,19 @@
     <ClInclude Include="jhPlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="jhPlayer.h">
+    <ClInclude Include="jhApple.h">
       <Filter>Contents</Filter>
     </ClInclude>
     <ClInclude Include="jhLoadResources.h" />
+    <ClInclude Include="jhTile.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="jhSnake.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="jhBackGround.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jhPlayScene.cpp">
@@ -22,7 +31,16 @@
     <ClCompile Include="jhTitleScene.cpp">
       <Filter>Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="jhPlayer.cpp">
+    <ClCompile Include="jhApple.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="jhTile.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="jhSnake.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="jhBackGround.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>

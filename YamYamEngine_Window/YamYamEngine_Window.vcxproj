@@ -136,15 +136,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="jhBackGround.h" />
     <ClInclude Include="jhLoadResources.h" />
     <ClInclude Include="jhLoadScene.h" />
-    <ClInclude Include="jhPlayer.h" />
+    <ClInclude Include="jhApple.h" />
     <ClInclude Include="jhPlayScene.h" />
+    <ClInclude Include="jhSnake.h" />
+    <ClInclude Include="jhTile.h" />
     <ClInclude Include="jhTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="jhPlayer.cpp" />
+    <ClCompile Include="jhApple.cpp" />
+    <ClCompile Include="jhBackGround.cpp" />
     <ClCompile Include="jhPlayScene.cpp" />
+    <ClCompile Include="jhSnake.cpp" />
+    <ClCompile Include="jhTile.cpp" />
     <ClCompile Include="jhTitleScene.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

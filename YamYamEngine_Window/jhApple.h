@@ -2,7 +2,7 @@
 #include "..\\YamYamEngine_SOURCE\\\jhGameObject.h"
 
 namespace jh {
-	class Player : public GameObject
+	class Apple : public GameObject
 	{
 	public :
 		void Initialize() override;

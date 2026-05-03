@@ -46,6 +46,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jhTexture.cpp">
       <Filter>Resource\Texture</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhTileMap.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhTilemapRenderer.cpp">
+      <Filter>Component</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)jhSceneManager.h">
@@ -101,6 +107,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)jhTexture.h">
       <Filter>Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhTileMap.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhTilemapRenderer.h">
+      <Filter>Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

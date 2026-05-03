@@ -31,7 +31,8 @@ namespace jh
 	}
 
 	void SceneManager::Initialize() {
-
+		// 실행 시점에 mActiveScene 은 nullptr 임
+		//mActiveScene->Initialize();
 	}
 
 	void SceneManager::Update() {
