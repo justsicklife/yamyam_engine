@@ -14,7 +14,7 @@ namespace jh
 
 		graphcis::Texture* apple = Resources::Find<graphcis::Texture>(L"Apple");
 
-		sr->SetSize(jh::math::Vector2(5.0f, 5.0f));
+		sr->SetSize(math::Vector2(2.5f, 2.5f));
 
 		sr->SetTexture(apple);
 	}

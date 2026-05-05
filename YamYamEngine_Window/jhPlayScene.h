@@ -4,6 +4,8 @@
 #include <deque>
 #include "..\\YamYamEngine_SOURCE\\jhMath.h"
 #include "jhBackGround.h"
+#include "..\\YamYamEngine_SOURCE\\jhLinkedList.h"
+#include "jhSnake.h"
 
 namespace jh {
 	class PlayScene : public Scene {
@@ -19,8 +21,8 @@ namespace jh {
 		void OnEnter() override;
 		void OnExit() override;
 	private :
-		 class Apple* apple;
-		 std::deque<math::Vector2*> mBody;
-		 BackGround* background;
+		class Apple* apple;
+		LinkedList<Snake*> snakeList;
+		BackGround* background;
 	};
 }

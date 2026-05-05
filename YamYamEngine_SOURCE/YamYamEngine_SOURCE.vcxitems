@@ -21,6 +21,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jhGameObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhInput.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhLayer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhLinkedList.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhMath.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhObject.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhResource.h" />
@@ -42,6 +43,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jhGameObject.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhInput.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhLayer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhLinkedList.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhMath.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhResources.cpp" />

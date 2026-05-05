@@ -52,6 +52,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jhTilemapRenderer.cpp">
       <Filter>Component</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhLinkedList.cpp">
+      <Filter>DataStructures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)jhSceneManager.h">
@@ -102,9 +105,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jhLayer.h">
       <Filter>Layer</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)jhObject.h">
-      <Filter>Common</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)jhTexture.h">
       <Filter>Resource\Texture</Filter>
     </ClInclude>
@@ -113,6 +113,12 @@
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)jhTilemapRenderer.h">
       <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhObject.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhLinkedList.h">
+      <Filter>DataStructures</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +148,9 @@
     </Filter>
     <Filter Include="Resource\Texture">
       <UniqueIdentifier>{6b111601-dabf-4f21-ac30-7024951bdfe9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataStructures">
+      <UniqueIdentifier>{eb6213cf-cf21-4514-97c3-a2581d704751}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 #include "jhTilemapRenderer.h"
 #include "jhTileMap.h"
+#include "jhTransform.h"
 
 namespace jh {
 	TilemapRenderer::TilemapRenderer()
@@ -24,6 +25,9 @@ namespace jh {
 	void TilemapRenderer::Render(HDC hdc)
 	{
 		TileMap* tileMap = GetOwner()->GetComponent<TileMap>();
+
+		Transform * transform =GetOwner()->GetComponent<Transform>();
+
 		if (tileMap == nullptr) {
 			return;
 		}
@@ -38,8 +42,8 @@ namespace jh {
 				int index = x + y * width;
 				int tile = tiles[index];
 
-				int drawX = x * mTileSize;
-				int drawY = y * mTileSize;
+				int drawX = x * mTileSize + transform->GetPosition().x;
+				int drawY = y * mTileSize + transform->GetPosition().y;
 
 				if (tile == 1) {
 					

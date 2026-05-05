@@ -30,16 +30,39 @@ namespace jh {
 		
 			apple->Initialize();
 
-			background = object::Instantiate<BackGround>(enums::eLayerType::BackGround, Vector2(50.0f, 50.0f));
+			background = object::Instantiate<BackGround>(enums::eLayerType::BackGround, Vector2(250.0f, 250.0f));
 
 			background->Initialize();
+
+			Snake* head =  object::Instantiate<Snake>(enums::eLayerType::Player, Vector2(0.0f, 0.0f));
+
+
+			Snake* tail = object::Instantiate<Snake>(enums::eLayerType::Player, Vector2(0.0f, 0.0f));
+
+			head->SetPos(4, 0);
+
+			tail->SetPos(5, 0);
+
+			head->Initialize();
+
+			tail->Initialize();
+
+
+			snakeList.PushFront(head);
+
+			snakeList.PushFront(tail);
 
 		}
 	}
 
 	void PlayScene::Update()
 	{
-		Scene::Update();
+		Node<Snake*>* currentSnake = snakeList.GetHead();
+
+		while (currentSnake != nullptr) {
+			currentSnake->data->Update();
+			currentSnake = currentSnake->next;
+		}
 	}
 	
 	void PlayScene::LateUpdate() {
@@ -51,7 +74,16 @@ namespace jh {
  	}
 
 	void PlayScene::Render(HDC hdc) {
-		Scene::Render(hdc);
+		apple->Render(hdc);
+
+		background->Render(hdc);
+
+		Node<Snake*>* currentSnake = snakeList.GetHead();
+
+		while (currentSnake != nullptr) {
+			currentSnake->data->Render(hdc);
+			currentSnake = currentSnake->next;
+		}
 	}
 
 	void PlayScene::OnEnter()
