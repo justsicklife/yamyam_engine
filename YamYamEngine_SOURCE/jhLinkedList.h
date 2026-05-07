@@ -32,6 +32,19 @@ namespace jh {
 
 		}
 
+		void PushBack(const T& value) {
+			Node<T>* node = new Node<T>{value ,nullptr};
+
+			if (tail == nullptr || head == nullptr) {
+				tail = node;
+				head = node;
+				return;
+			}
+
+			tail->next = node;
+			tail = node;
+		}
+
 		void PopBack() {
 		
 			if (head == nullptr) {

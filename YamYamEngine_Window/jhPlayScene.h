@@ -6,6 +6,7 @@
 #include "jhBackGround.h"
 #include "..\\YamYamEngine_SOURCE\\jhLinkedList.h"
 #include "jhSnake.h"
+#include "jhApple.h"
 
 namespace jh {
 	class PlayScene : public Scene {
@@ -21,8 +22,8 @@ namespace jh {
 		void OnEnter() override;
 		void OnExit() override;
 	private :
-		class Apple* apple;
-		LinkedList<Snake*> snakeList;
+		Apple* apple;
+		Snake* snake;
 		BackGround* background;
 	};
 }

@@ -1,6 +1,12 @@
 #pragma once
 #include "..\\YamYamEngine_SOURCE\\\jhGameObject.h"
 #include "..\\YamYamEngine_SOURCE\\\jhMath.h"
+#include "..\\YamYamEngine_SOURCE\\\jhLinkedList.h"
+#include "..\\YamYamEngine_SOURCE\\\jhTileMap.h"
+#include "..\\YamYamEngine_SOURCE\\\jhTilemapRenderer.h"
+
+#include "jhSnakeHead.h"
+#include "jhSnakeBody.h"
 
 namespace jh {
 
@@ -12,28 +18,25 @@ namespace jh {
 		None
 	};
 
-	class Snake : public GameObject
+	class Snake
 	{
 	public:
-		void Initialize() override;
-		void Update() override;
-		void LateUpdate() override;
-		void Render(HDC hdc) override;
+		void Initialize();
+		void Update();
+		void LateUpdate();
+		void Render(HDC hdc);
 
-		void SetPos(int x,int y) {
-			pos.x = x;
-			pos.y = y;
-		}
+		bool Step(math::Vector2& prevPos);
 
-		math::Vector2 GetPos() {
-			return pos;
-		}
+		void UpdateBodyPositions(math::Vector2 stepPos);
 
-		void Move();
+		bool IsOutOfBounds(math::Vector2 nextPos);
 
 	private:
-		math::Vector2 pos;
 		Direction dir;
+		SnakeHead* head;
+		LinkedList<SnakeBody*> bodies;
+		
 		float currentTIme;
 	};
 }

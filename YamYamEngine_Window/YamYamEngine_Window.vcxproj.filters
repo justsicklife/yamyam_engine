@@ -23,6 +23,12 @@
     <ClInclude Include="jhBackGround.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="jhSnakeHead.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="jhSnakeBody.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jhPlayScene.cpp">
@@ -41,6 +47,12 @@
       <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="jhBackGround.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="jhSnakeHead.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="jhSnakeBody.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
   </ItemGroup>

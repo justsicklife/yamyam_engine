@@ -34,35 +34,15 @@ namespace jh {
 
 			background->Initialize();
 
-			Snake* head =  object::Instantiate<Snake>(enums::eLayerType::Player, Vector2(0.0f, 0.0f));
+			snake = new Snake();
 
-
-			Snake* tail = object::Instantiate<Snake>(enums::eLayerType::Player, Vector2(0.0f, 0.0f));
-
-			head->SetPos(4, 0);
-
-			tail->SetPos(5, 0);
-
-			head->Initialize();
-
-			tail->Initialize();
-
-
-			snakeList.PushFront(head);
-
-			snakeList.PushFront(tail);
-
+			snake->Initialize();
 		}
 	}
 
 	void PlayScene::Update()
 	{
-		Node<Snake*>* currentSnake = snakeList.GetHead();
-
-		while (currentSnake != nullptr) {
-			currentSnake->data->Update();
-			currentSnake = currentSnake->next;
-		}
+		snake->Update();
 	}
 	
 	void PlayScene::LateUpdate() {
@@ -77,13 +57,8 @@ namespace jh {
 		apple->Render(hdc);
 
 		background->Render(hdc);
-
-		Node<Snake*>* currentSnake = snakeList.GetHead();
-
-		while (currentSnake != nullptr) {
-			currentSnake->data->Render(hdc);
-			currentSnake = currentSnake->next;
-		}
+		
+		snake->Render(hdc);
 	}
 
 	void PlayScene::OnEnter()

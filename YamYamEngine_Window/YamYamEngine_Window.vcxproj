@@ -142,6 +142,8 @@
     <ClInclude Include="jhApple.h" />
     <ClInclude Include="jhPlayScene.h" />
     <ClInclude Include="jhSnake.h" />
+    <ClInclude Include="jhSnakeBody.h" />
+    <ClInclude Include="jhSnakeHead.h" />
     <ClInclude Include="jhTile.h" />
     <ClInclude Include="jhTitleScene.h" />
   </ItemGroup>
@@ -150,6 +152,8 @@
     <ClCompile Include="jhBackGround.cpp" />
     <ClCompile Include="jhPlayScene.cpp" />
     <ClCompile Include="jhSnake.cpp" />
+    <ClCompile Include="jhSnakeBody.cpp" />
+    <ClCompile Include="jhSnakeHead.cpp" />
     <ClCompile Include="jhTile.cpp" />
     <ClCompile Include="jhTitleScene.cpp" />
   </ItemGroup>
