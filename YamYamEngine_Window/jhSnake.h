@@ -32,11 +32,21 @@ namespace jh {
 
 		bool IsOutOfBounds(math::Vector2 nextPos);
 
+		void SetTileMap(TileMap* tileMap) {
+			mTileMap = tileMap;
+		}
+
+		TileMap* GetTileMap() {
+			return mTileMap;
+		}
+
+		void Grow();
+
 	private:
 		Direction dir;
 		SnakeHead* head;
 		LinkedList<SnakeBody*> bodies;
-		
+		TileMap* mTileMap;
 		float currentTIme;
 	};
 }

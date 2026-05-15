@@ -7,7 +7,8 @@ namespace jh::enums {
 		// Tree
 		// character
 		Player,
-		Max = 16,
+		Max = 4,
+		//Max = 16,
 	};
 
 	enum class eResourceType {

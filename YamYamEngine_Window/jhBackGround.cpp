@@ -7,14 +7,8 @@ namespace jh {
 	void BackGround::Initialize()
 	{
 
-		TileMap* pTileMap = AddComponent<TileMap>();
-		TilemapRenderer* pTilemapRenderer = AddComponent<TilemapRenderer>();
-
-		pTilemapRenderer->SetTileSize(64);
-
-		pTileMap->SetHeight(7);
-		pTileMap->SetWidth(7);
-
+		TileMap* pTileMap = GetComponent<TileMap>();
+		TilemapRenderer* pTilemapRenderer = AddComponent<TilemapRenderer>();;
 
 		std::vector<int>& tileMap = pTileMap->GetTiles();
 	

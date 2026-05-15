@@ -4,6 +4,9 @@
 #include "jhGameObject.h"
 
 namespace jh {
+	/// <summary>
+	/// 레이어 인데 배열로 게임오브젝트를 가지고있음
+	/// </summary>
 	class Layer : public Entity
 	{
 	public:

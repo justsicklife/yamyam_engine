@@ -8,13 +8,21 @@
 
 namespace jh
 {
+
+	void Apple::OnEaten(Snake* snake)
+	{
+		snake->Grow();
+	}
+
 	void Apple::Initialize()
 	{
-		SpriteRenderer* sr = this->AddComponent<SpriteRenderer>();
+		SpriteRenderer* sr = AddComponent<SpriteRenderer>();
 
 		graphcis::Texture* apple = Resources::Find<graphcis::Texture>(L"Apple");
 
-		sr->SetSize(math::Vector2(2.5f, 2.5f));
+		this->SetPosition(math::Vector2(2.0f,2.0f));
+
+		sr->SetSize(math::Vector2(4.0f, 4.0f));
 
 		sr->SetTexture(apple);
 	}
@@ -28,17 +36,22 @@ namespace jh
 	{
 		GameObject::LateUpdate();
 		
-		if (Input::GetKey(eKeyCode::Right)) {
-			Transform* tr = GetComponent<Transform>();
-			Vector2 pos = tr->GetPosition();
-
-			pos.x += 100.0f * Time::DeltaTime();
-			tr->SetPosition(pos);
-		}
 	}
 
 	void Apple::Render(HDC hdc)
 	{
+		math::Vector2 pos = GetPosition();
+
+		Transform* transform = GetComponent<Transform>();
+
+		transform->SetPosition({ 250.0f + pos.x * 64 ,250.0f + pos.y * 64 });
+
 		GameObject::Render(hdc);
+	}
+
+
+	eItemType Apple::GetItemType()
+	{
+		return eItemType::Apple;
 	}
 }

@@ -4,7 +4,6 @@
 namespace jh {
 	TileMap::TileMap() 
 	{
-		//GetOwner()->AddComponent<TilemapRenderer>();
 	}
 
 	TileMap::~TileMap()

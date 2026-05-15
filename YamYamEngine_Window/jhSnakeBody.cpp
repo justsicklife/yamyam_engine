@@ -29,8 +29,8 @@ namespace jh {
 
 		transform->SetPosition({ 250.0f + pos.x * 64,250.0f + pos.y * 64 });
 
-		GameObject::Render(hdc);
-
+		// GameObject::Render 를 마지막에 해주는 이유
+		// GameObject 안에 있는 Component 들을 모두 Render 해줌
 		GameObject::Render(hdc);
 
 	}

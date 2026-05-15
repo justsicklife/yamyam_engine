@@ -20,5 +20,13 @@ namespace jh::math {
 			, y(_y)
 		{
 		}
+
+		bool operator==(const Vector2& vector2) const {
+			if (this->x == vector2.x && this->y == vector2.y) {
+				return true;
+			}
+
+			return false;
+		}
 	};
 }

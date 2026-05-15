@@ -10,13 +10,7 @@
     <ClInclude Include="jhPlayScene.h">
       <Filter>Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="jhApple.h">
-      <Filter>Contents</Filter>
-    </ClInclude>
     <ClInclude Include="jhLoadResources.h" />
-    <ClInclude Include="jhTile.h">
-      <Filter>Contents</Filter>
-    </ClInclude>
     <ClInclude Include="jhSnake.h">
       <Filter>Contents</Filter>
     </ClInclude>
@@ -29,6 +23,15 @@
     <ClInclude Include="jhSnakeBody.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="jhApple.h">
+      <Filter>Contents\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="jhItem.h">
+      <Filter>Contents\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="jhItemManager.h">
+      <Filter>Contents\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jhPlayScene.cpp">
@@ -36,12 +39,6 @@
     </ClCompile>
     <ClCompile Include="jhTitleScene.cpp">
       <Filter>Scenes</Filter>
-    </ClCompile>
-    <ClCompile Include="jhApple.cpp">
-      <Filter>Contents</Filter>
-    </ClCompile>
-    <ClCompile Include="jhTile.cpp">
-      <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="jhSnake.cpp">
       <Filter>Contents</Filter>
@@ -55,6 +52,15 @@
     <ClCompile Include="jhSnakeBody.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
+    <ClCompile Include="jhApple.cpp">
+      <Filter>Contents\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="jhItem.cpp">
+      <Filter>Contents\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="jhItemManager.cpp">
+      <Filter>Contents\Item</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scenes">
@@ -62,6 +68,9 @@
     </Filter>
     <Filter Include="Contents">
       <UniqueIdentifier>{bc944e4e-4b8c-4e9a-9729-20e561247051}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\Item">
+      <UniqueIdentifier>{f6b578fe-a7c5-4745-81cb-11e20bb93674}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

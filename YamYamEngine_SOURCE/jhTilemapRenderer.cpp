@@ -25,6 +25,7 @@ namespace jh {
 	void TilemapRenderer::Render(HDC hdc)
 	{
 		TileMap* tileMap = GetOwner()->GetComponent<TileMap>();
+		int mTileSize = tileMap->GetTileSize();
 
 		Transform * transform =GetOwner()->GetComponent<Transform>();
 

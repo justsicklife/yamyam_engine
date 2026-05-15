@@ -31,6 +31,22 @@ namespace jh {
 		void SetHeight(int height) {
 			mHeight = height;
 		}
+		
+		void SetTileeSize(int tileSize) {
+			mTileSize = tileSize;
+		}
+
+		int GetTileSize() {
+			return mTileSize;
+		}
+
+		math::Vector2 GetOffset() {
+			return mOffset;
+		}
+
+		void SetOffset(math::Vector2 offset) {
+			mOffset = offset;
+		}
 
 		std::vector<int>& GetTiles() {
 			return mTiles;
@@ -39,6 +55,8 @@ namespace jh {
 	private:
 		int mWidth;
 		int mHeight;
+		int mTileSize;
+		math::Vector2 mOffset;
 		std::vector<int> mTiles;
 	};
 }

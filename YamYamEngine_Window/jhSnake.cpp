@@ -10,14 +10,17 @@ namespace jh {
 
 	void Snake::Initialize()
 	{
-		head = object::Instantiate<SnakeHead>(enums::eLayerType::Player, math::Vector2(250.0f,250.0f));
+
+		TileMap* tileMap = GetTileMap();
+
+		head = object::Instantiate<SnakeHead>(enums::eLayerType::Player, tileMap->GetOffset());
 		head->Initialize();
 
 		graphcis::Texture* headTexture = Resources::Find<graphcis::Texture>(L"Head");
 
 
 		{
-			SnakeBody* body1 = object::Instantiate<SnakeBody>(enums::eLayerType::Player, math::Vector2(250.0f, 250.0f));
+			SnakeBody* body1 = object::Instantiate<SnakeBody>(enums::eLayerType::Player, tileMap->GetOffset());
 			
 			body1->Initialize();
 
@@ -27,7 +30,7 @@ namespace jh {
 		}
 
 		{
-			SnakeBody* body2 = object::Instantiate<SnakeBody>(enums::eLayerType::Player, math::Vector2(250.0f, 250.0f));
+			SnakeBody* body2 = object::Instantiate<SnakeBody>(enums::eLayerType::Player, tileMap->GetOffset());
 
 			body2->Initialize();
 
@@ -65,6 +68,7 @@ namespace jh {
 
 				if (Step(stepPos)) {
 					UpdateBodyPositions(stepPos);
+
 				}
 			}
 
@@ -144,11 +148,25 @@ namespace jh {
 
 	bool Snake::IsOutOfBounds(math::Vector2 nextPos)
 	{
-		if (0 <= nextPos.x && 7 > nextPos.x && 0 <= nextPos.y && 7 > nextPos.y) {
+		float height =  GetTileMap()->GetHeight();
+		float width = GetTileMap()->GetWidth();
+
+		if (0 <= nextPos.x && width > nextPos.x && 0 <= nextPos.y && height > nextPos.y) {
 			return true;
 		}
 
 		return false;
+	}
+
+	/// <summary>
+	/// Grow : ¹ìÀÇ ¸öÅëÀÌ ´Ã¾î³ª´Â°Í
+	/// </summary>
+	void Snake::Grow()
+	{
+		math::Vector2 tailPos = bodies.GetTail()->data->GetPos();
+		SnakeBody* newBody = new SnakeBody();
+		newBody->SetPos(tailPos);
+		bodies.PushBack(newBody);
 	}
 
 }

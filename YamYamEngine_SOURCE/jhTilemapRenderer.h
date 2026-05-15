@@ -15,9 +15,6 @@ namespace jh {
 		void LateUpdate()  override;
 		void Render(HDC hdc)  override;
 
-		void SetTileSize(int size) { mTileSize = size; }
-
 	private:
-		int mTileSize;
 	};
 }

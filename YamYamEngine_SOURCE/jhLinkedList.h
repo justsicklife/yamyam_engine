@@ -17,6 +17,10 @@ namespace jh {
 			return head;
 		}
 
+		Node<T>* GetTail() {
+			return tail;
+		}
+
 		// 노드 앞에 추가 
 		void PushFront(const T& value) {
 
