@@ -34,8 +34,15 @@ namespace jh
 
 	void Apple::LateUpdate()
 	{
-		GameObject::LateUpdate();
-		
+		math::Vector2 snakePosition =  GetSnake()->GetSnakeHead()->GetPosition();
+
+		if (GetPosition() == snakePosition && !isColliding) {
+			isColliding = true;
+			OnEaten(GetSnake());
+			delete this;
+		}
+
+		GameObject::LateUpdate();	
 	}
 
 	void Apple::Render(HDC hdc)

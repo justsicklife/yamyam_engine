@@ -46,4 +46,10 @@ namespace jh
 	void SceneManager::Render(HDC hdc) {
 		mActiveScene->Render(hdc);
 	}
+
+	void SceneManager::FlushPendingObjects()
+	{
+		mActiveScene->FlushPendingObjects();
+	}
+
 }

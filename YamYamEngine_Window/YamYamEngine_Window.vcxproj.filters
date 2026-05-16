@@ -32,6 +32,9 @@
     <ClInclude Include="jhItemManager.h">
       <Filter>Contents\Item</Filter>
     </ClInclude>
+    <ClInclude Include="jhGridPosition.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jhPlayScene.cpp">

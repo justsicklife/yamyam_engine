@@ -25,7 +25,7 @@ namespace jh {
 	{
 		Transform* transform = GetComponent<Transform>();
 
-		math::Vector2 pos = GetPos();
+		math::Vector2 pos = GetPosition();
 
 		transform->SetPosition({ 250.0f + pos.x * 64,250.0f + pos.y * 64 });
 

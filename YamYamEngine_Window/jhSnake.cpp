@@ -24,7 +24,7 @@ namespace jh {
 			
 			body1->Initialize();
 
-			body1->SetPos({ 0.0f,1.0f });
+			body1->SetPosition({ 0.0f,1.0f });
 
 			bodies.PushBack(body1);
 		}
@@ -35,7 +35,7 @@ namespace jh {
 			body2->Initialize();
 
 
-			body2->SetPos({ 0.0f,2.0f });
+			body2->SetPosition({ 0.0f,2.0f });
 
 
 			bodies.PushBack(body2);
@@ -102,7 +102,7 @@ namespace jh {
 	// 벽 안에서 움직이면 true
 	bool Snake::Step(math::Vector2& prevPos)
  	{
-		prevPos = head->GetPos();
+		prevPos = head->GetPosition();
 		math::Vector2 currPos = prevPos;
 
 		if (dir == Direction::Up) {
@@ -119,7 +119,7 @@ namespace jh {
 		}
 
 		if (IsOutOfBounds(currPos)) {
-			head->SetPos(currPos);
+			head->SetPosition(currPos);
 			return true;
 		}
 
@@ -137,9 +137,9 @@ namespace jh {
 		while (curBody != nullptr) {
 			// 문제 
 			// 1. 현재 바디에 있는 값을 추출한다.
-			math::Vector2 prevPos = curBody->data->GetPos();
+			math::Vector2 prevPos = curBody->data->GetPosition();
 			// 2. 추출한후 전에 값으로 변경한다
-			curBody->data->SetPos(stepPos);
+			curBody->data->SetPosition(stepPos);
 			stepPos = prevPos;
 			// 3. 그다음 노드로 이동한다.
 			curBody = curBody->next;
@@ -163,9 +163,10 @@ namespace jh {
 	/// </summary>
 	void Snake::Grow()
 	{
-		math::Vector2 tailPos = bodies.GetTail()->data->GetPos();
-		SnakeBody* newBody = new SnakeBody();
-		newBody->SetPos(tailPos);
+		math::Vector2 tailPos = bodies.GetTail()->data->GetPosition();
+		SnakeBody* newBody = object::Instantiate<SnakeBody>(enums::eLayerType::Player, math::Vector2::Zero);
+		newBody->Initialize();
+		newBody->SetPosition(tailPos);
 		bodies.PushBack(newBody);
 	}
 

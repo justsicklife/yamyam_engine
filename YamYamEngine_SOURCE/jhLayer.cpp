@@ -1,7 +1,7 @@
 #include "jhLayer.h"
 
 namespace jh {
-	Layer::Layer() : mGameObjects{} {
+	Layer::Layer() : mGameObjects{}, mPendingGameObejects{} {
 	}
 
 	Layer::~Layer()
@@ -33,8 +33,17 @@ namespace jh {
 		}
 	}
 
+	void Layer::FlushPendingObjects()
+	{
+		for (GameObject* gameObj : mPendingGameObejects) {
+			mGameObjects.push_back(gameObj);
+		}
+
+		mPendingGameObejects.clear();
+	}
+
 	void Layer::AddGameObject(GameObject* gameObject)
 	{
-		mGameObjects.push_back(gameObject);
+		mPendingGameObejects.push_back(gameObject);
 	}
 }

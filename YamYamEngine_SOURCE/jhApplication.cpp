@@ -33,6 +33,7 @@ namespace jh {
 		Update();
 		LateUpdate();
 		Render();
+		FlushPendingObjects();
 	}
 
 	void Application::Update() {
@@ -55,6 +56,11 @@ namespace jh {
 		SceneManager::Render(mBackHdc);
 
 		copyRenderTarget(mBackHdc,mHdc);
+	}
+
+	void Application::FlushPendingObjects()
+	{
+		SceneManager::FlushPendingObjects();
 	}
 
 	// 잔상 안남게 지우기

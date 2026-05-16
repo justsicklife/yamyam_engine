@@ -1,10 +1,11 @@
 #pragma once
 #include "..\\YamYamEngine_SOURCE\\\jhGameObject.h"
 #include "..\\YamYamEngine_SOURCE\\\jhMath.h"
+#include "jhGridPosition.h"
 
 namespace jh {
 
-	class SnakeHead : public GameObject
+	class SnakeHead : public GameObject, public GridPosition
 	{
 	public :
 		void Initialize() override;
@@ -12,16 +13,7 @@ namespace jh {
 		void LateUpdate() override;
 		void Render(HDC hdc) override;
 
-		void SetPos(math::Vector2 pos) {
-			position = pos;
-		}
-
-		math::Vector2 GetPos() {
-			return position;
-		}
-
 	private:
-		math::Vector2 position;
 	};
 
 }

@@ -42,6 +42,10 @@ namespace jh {
 
 		void Grow();
 
+		SnakeHead* GetSnakeHead() {
+			return head;
+		}
+
 	private:
 		Direction dir;
 		SnakeHead* head;

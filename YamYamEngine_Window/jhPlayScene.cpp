@@ -48,6 +48,8 @@ namespace jh {
 
 			snake = new Snake();
 
+			apple->SetSnake(snake);
+
 			snake->SetTileMap(tileMap);
 
 			snake->Initialize();
@@ -56,13 +58,15 @@ namespace jh {
 
 	void PlayScene::Update()
 	{
+		Scene::Update();
+
 		snake->Update();
 	}
 	
 	void PlayScene::LateUpdate() {
 		Scene::LateUpdate();
 
-		itemManager->LateUpdate();
+		snake->LateUpdate();
 
 		if (Input::GetKeyDown(eKeyCode::N)) {
 			SceneManager::LoadScene(L"TitleScene");

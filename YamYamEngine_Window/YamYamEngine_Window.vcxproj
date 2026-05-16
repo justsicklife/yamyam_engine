@@ -137,6 +137,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="jhBackGround.h" />
+    <ClInclude Include="jhGridPosition.h" />
     <ClInclude Include="jhItem.h" />
     <ClInclude Include="jhItemManager.h" />
     <ClInclude Include="jhLoadResources.h" />

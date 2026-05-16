@@ -67,6 +67,18 @@ namespace jh {
 		}
 	}
 
+	void Scene::FlushPendingObjects()
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr) {
+				continue;
+			}
+
+			layer->FlushPendingObjects();
+		}
+	}
+
 	void Scene::AddGameObject(GameObject* gameObj, enums::eLayerType type)
 	{
 		mLayers[(UINT)type]->AddGameObject(gameObj);

@@ -2,6 +2,7 @@
 #include "..\\YamYamEngine_SOURCE\\\jhGameObject.h"
 #include "..\\YamYamEngine_SOURCE\\\jhMath.h"
 #include "jhSnake.h"
+#include "jhGridPosition.h"
 
 namespace jh {
 
@@ -10,7 +11,7 @@ namespace jh {
 		Bomb
 	};
 
-	class Item : public GameObject
+	class Item : public GameObject,public GridPosition
 	{
 	public:
 
@@ -18,16 +19,16 @@ namespace jh {
 
 		virtual eItemType GetItemType() = 0;
 
-		void SetPosition(math::Vector2 position) {
-			mPosition = position;
+		void SetSnake(Snake* snake) {
+			this->snake = snake;
 		}
 
-		math::Vector2 GetPosition() {
-			return mPosition;
+		Snake* GetSnake() {
+			return snake;
 		}
 
+		bool isColliding;
 	private:
-
-		math::Vector2 mPosition;
+		Snake* snake;
 	};
 }

@@ -16,7 +16,9 @@ namespace jh {
 		void LateUpdate();
 
 		void Render();
-	
+
+		void FlushPendingObjects();
+
 		HDC GetHdc() {
 			return mHdc;
 		}

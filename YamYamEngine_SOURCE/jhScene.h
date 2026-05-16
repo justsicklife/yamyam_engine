@@ -14,6 +14,7 @@ namespace jh {
 		virtual void Update();
 		virtual void LateUpdate();
 		virtual void Render(HDC hdc);
+		virtual void FlushPendingObjects();
 
 		// Scene 이 시작 할때 실행되는 메서드 
 		// 예 : 몬스터 위치 초기화
