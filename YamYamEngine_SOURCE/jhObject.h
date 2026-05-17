@@ -53,4 +53,11 @@ namespace jh::object
 
 		return gameObject;
 	}
+
+	static void Destroy(enums::eLayerType type,GameObject* gameObj) {
+		Scene* activeScene = SceneManager::GetActiveScene();
+		Layer* layer = activeScene->GetLayer(type);
+
+		layer->DeleteGameObject(gameObj);
+	}
 }

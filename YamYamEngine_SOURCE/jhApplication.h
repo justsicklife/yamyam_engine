@@ -18,6 +18,8 @@ namespace jh {
 		void Render();
 
 		void FlushPendingObjects();
+		
+		void FlushDeleteObjects();
 
 		HDC GetHdc() {
 			return mHdc;

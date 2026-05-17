@@ -52,4 +52,9 @@ namespace jh
 		mActiveScene->FlushPendingObjects();
 	}
 
+	void SceneManager::FlushDeleteObjects() 
+	{
+		mActiveScene->FlushDeleteObjects();
+	}
+
 }

@@ -34,6 +34,7 @@ namespace jh {
 		LateUpdate();
 		Render();
 		FlushPendingObjects();
+		FlushDeleteObjects();
 	}
 
 	void Application::Update() {
@@ -61,6 +62,11 @@ namespace jh {
 	void Application::FlushPendingObjects()
 	{
 		SceneManager::FlushPendingObjects();
+	}
+
+	void Application::FlushDeleteObjects()
+	{
+		SceneManager::FlushDeleteObjects();
 	}
 
 	// 잔상 안남게 지우기

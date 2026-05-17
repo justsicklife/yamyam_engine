@@ -5,6 +5,7 @@
 #include "jhObject.h"
 #include "jhSpriteRenderer.h"
 #include "jhResources.h"
+#include "jhObject.h"
 
 namespace jh
 {
@@ -39,7 +40,7 @@ namespace jh
 		if (GetPosition() == snakePosition && !isColliding) {
 			isColliding = true;
 			OnEaten(GetSnake());
-			delete this;
+			object::Destroy(enums::eLayerType::Player, this);
 		}
 
 		GameObject::LateUpdate();	

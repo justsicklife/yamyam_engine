@@ -42,8 +42,27 @@ namespace jh {
 		mPendingGameObejects.clear();
 	}
 
+	void Layer::FlushDeleteObjects()
+	{
+		for (int i = 0; i < mDeleteGameObjects.size(); i++) {
+			for (int j = 0; j < mGameObjects.size() ; j++) {
+				if (mDeleteGameObjects[i] == mGameObjects[j]) {
+					mGameObjects.erase(mGameObjects.begin() + j);
+				}
+			}
+		}
+
+		mDeleteGameObjects.clear();
+	}
+
 	void Layer::AddGameObject(GameObject* gameObject)
 	{
 		mPendingGameObejects.push_back(gameObject);
 	}
+
+	void Layer::DeleteGameObject(GameObject* gameObject)
+	{
+		mDeleteGameObjects.push_back(gameObject);
+	}
+
 }

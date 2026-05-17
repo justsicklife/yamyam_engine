@@ -79,6 +79,18 @@ namespace jh {
 		}
 	}
 
+	void Scene::FlushDeleteObjects()
+	{
+		for (Layer* layer : mLayers)
+		{
+			if (layer == nullptr) {
+				continue;
+			}
+
+			layer->FlushDeleteObjects();
+		}
+	}
+
 	void Scene::AddGameObject(GameObject* gameObj, enums::eLayerType type)
 	{
 		mLayers[(UINT)type]->AddGameObject(gameObj);

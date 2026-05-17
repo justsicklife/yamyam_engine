@@ -36,6 +36,7 @@ namespace jh {
 		static void LateUpdate();
 		static void Render(HDC hdc);
 		static void FlushPendingObjects();
+		static void FlushDeleteObjects();
 
 	private :
 		//static std::vector<Scene*> mScene;
