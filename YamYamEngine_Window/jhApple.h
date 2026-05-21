@@ -7,6 +7,7 @@ namespace jh {
 	public :
 		
 		void OnEaten(Snake* snake) override;
+		void ApplyEffect(Snake* snake) override;
 
 		void Initialize() override;
 		void Update() override;

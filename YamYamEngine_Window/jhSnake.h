@@ -5,8 +5,10 @@
 #include "..\\YamYamEngine_SOURCE\\\jhTileMap.h"
 #include "..\\YamYamEngine_SOURCE\\\jhTilemapRenderer.h"
 
+#include <vector>
 #include "jhSnakeHead.h"
 #include "jhSnakeBody.h"
+#include "jhItem.h"
 
 namespace jh {
 
@@ -45,6 +47,10 @@ namespace jh {
 		SnakeHead* GetSnakeHead() {
 			return head;
 		}
+
+		std::vector<math::Vector2> GetBodyPositions();
+
+		void OnEat(Item* item);
 
 	private:
 		Direction dir;

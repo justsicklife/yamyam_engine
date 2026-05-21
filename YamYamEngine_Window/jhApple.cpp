@@ -6,14 +6,22 @@
 #include "jhSpriteRenderer.h"
 #include "jhResources.h"
 #include "jhObject.h"
+#include <random>
+#include "jhSnake.h"
 
 namespace jh
 {
 
 	void Apple::OnEaten(Snake* snake)
 	{
+		object::Destroy(enums::eLayerType::Player, this);
+	}
+
+	void Apple::ApplyEffect(Snake* snake)
+	{
 		snake->Grow();
 	}
+
 
 	void Apple::Initialize()
 	{
@@ -21,7 +29,7 @@ namespace jh
 
 		graphcis::Texture* apple = Resources::Find<graphcis::Texture>(L"Apple");
 
-		this->SetPosition(math::Vector2(2.0f,2.0f));
+		this->SetPosition(math::Vector2(5.0f,5.0f));
 
 		sr->SetSize(math::Vector2(4.0f, 4.0f));
 
@@ -35,13 +43,14 @@ namespace jh
 
 	void Apple::LateUpdate()
 	{
-		math::Vector2 snakePosition =  GetSnake()->GetSnakeHead()->GetPosition();
+		/*math::Vector2 snakePosition =  GetSnake()->GetSnakeHead()->GetPosition();
 
 		if (GetPosition() == snakePosition && !isColliding) {
 			isColliding = true;
 			OnEaten(GetSnake());
+			object::Instantiate<Apple>(enums::eLayerType::Player, math::Vector2::Zero);
 			object::Destroy(enums::eLayerType::Player, this);
-		}
+		}*/
 
 		GameObject::LateUpdate();	
 	}

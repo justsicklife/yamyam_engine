@@ -22,6 +22,8 @@ namespace jh {
 					return item;
 				}
 			}
+
+			return nullptr;
 		}
 		
 		void AddItem(Item* item) {

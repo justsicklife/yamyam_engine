@@ -46,6 +46,10 @@ namespace jh {
 
 	}
 
+	/// <summary>
+	/// 뱀이 움직이는 키입력 이벤트와 
+	/// 뱀이 0.5초마다 움직이는 이벤트 
+	/// </summary>
 	void Snake::Update()
 	{
 		if (Input::GetKeyDown(eKeyCode::W)) {
@@ -168,6 +172,32 @@ namespace jh {
 		newBody->Initialize();
 		newBody->SetPosition(tailPos);
 		bodies.PushBack(newBody);
+	}
+
+	/// <summary>
+	/// 뱀이 차지하는 좌표만 구해서 리턴하는 메서드
+	/// </summary>
+	/// <returns>뱀이 차지하는 좌표를 vector 타입으로 리턴 함</returns>
+	std::vector<math::Vector2> Snake::GetBodyPositions()
+	{
+		std::vector<math::Vector2> snakePositions = {};
+		math::Vector2 headPosition =head->GetPosition();
+
+		snakePositions.push_back(headPosition);
+
+		Node<SnakeBody*>* body = bodies.GetHead();
+
+		while (body) {
+			snakePositions.push_back(body->data->GetPosition());
+			body = body->next;
+		}
+
+		return snakePositions;
+	}
+
+	void Snake::OnEat(Item* item)
+	{
+		item->ApplyEffect(this);
 	}
 
 }

@@ -48,7 +48,7 @@ namespace jh {
 
 			snake = new Snake();
 
-			apple->SetSnake(snake);
+			//apple->SetSnake(snake);
 
 			snake->SetTileMap(tileMap);
 
@@ -67,6 +67,16 @@ namespace jh {
 		Scene::LateUpdate();
 
 		snake->LateUpdate();
+
+		// 뱀 머리에 해당하는 좌표를 받아옴
+		math::Vector2 snakeHeadPos = snake->GetSnakeHead()->GetPosition();
+		// 뱀 머리 좌표에 있는 아이템에 포인터를 가져옴
+		Item* item = itemManager->FindItemAt(snakeHeadPos);
+
+		if (item && !isColliding) {
+			//isColliding = true;
+			Collision(snake, item);
+		}
 
 		if (Input::GetKeyDown(eKeyCode::N)) {
 			SceneManager::LoadScene(L"TitleScene");
@@ -97,6 +107,15 @@ namespace jh {
 		//Transform* tr
 		//	= bg->GetComponent<Transform>();
 		//tr->SetPosition(Vector2(0, 0));
+	}
+
+	void PlayScene::Collision(Snake* snake, Item* item)
+	{
+		// 뱀 자신의 변화
+		// 뱀 길이 증가
+		snake->OnEat(item);
+		// 아이템 자신의 변화
+		item->OnEaten(snake);
 	}
 		
 }

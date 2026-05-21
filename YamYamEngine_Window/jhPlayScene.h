@@ -20,9 +20,13 @@ namespace jh {
 
 		void OnEnter() override;
 		void OnExit() override;
+
+		void Collision(Snake* snake, Item* item);
+
 	private :
 		ItemManager* itemManager;
 		Snake* snake;
 		BackGround* background;
+		//bool isColliding;
 	};
 }
