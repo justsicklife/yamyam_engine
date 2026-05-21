@@ -51,7 +51,8 @@ namespace jh {
 		std::vector<math::Vector2> GetBodyPositions();
 
 		void OnEat(Item* item);
-
+	public:
+		bool isMoving;
 	private:
 		Direction dir;
 		SnakeHead* head;

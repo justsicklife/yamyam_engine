@@ -27,6 +27,5 @@ namespace jh {
 		ItemManager* itemManager;
 		Snake* snake;
 		BackGround* background;
-		//bool isColliding;
 	};
 }

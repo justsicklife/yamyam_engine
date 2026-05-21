@@ -65,6 +65,8 @@ namespace jh {
 			dir = Direction::Left;
 		}
 
+		isMoving = false;
+		// 0.5초마다 한칸씩 움직임
 		if (currentTIme >= 0.5f) {
 			if (dir != Direction::None) {
 
@@ -72,7 +74,7 @@ namespace jh {
 
 				if (Step(stepPos)) {
 					UpdateBodyPositions(stepPos);
-
+					isMoving = true;
 				}
 			}
 

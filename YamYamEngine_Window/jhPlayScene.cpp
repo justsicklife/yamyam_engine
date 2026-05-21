@@ -73,8 +73,8 @@ namespace jh {
 		// 뱀 머리 좌표에 있는 아이템에 포인터를 가져옴
 		Item* item = itemManager->FindItemAt(snakeHeadPos);
 
-		if (item && !isColliding) {
-			//isColliding = true;
+		// 문제 한번 충돌하면 프레임 수 만큼 충돌함수가 실행됨
+		if (item && snake->isMoving) {
 			Collision(snake, item);
 		}
 
