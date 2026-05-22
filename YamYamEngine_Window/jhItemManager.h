@@ -30,6 +30,15 @@ namespace jh {
 			mItems.push_back(item);
 		}
 
+		void DeleteItem(Item* deleteItem) {
+			for (int i = 0; i < mItems.size(); i++) {
+				if (mItems[i] == deleteItem) {
+					mItems.erase(mItems.begin() + i);
+					break;
+				}
+			}
+		}
+
 	private:
 		std::vector<Item*> mItems;
 	};

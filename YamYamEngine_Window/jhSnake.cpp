@@ -67,7 +67,7 @@ namespace jh {
 
 		isMoving = false;
 		// 0.5초마다 한칸씩 움직임
-		if (currentTIme >= 0.5f) {
+		if (currentTIme >= 0.25f) {
 			if (dir != Direction::None) {
 
 				math::Vector2 stepPos;
@@ -157,7 +157,7 @@ namespace jh {
 		float height =  GetTileMap()->GetHeight();
 		float width = GetTileMap()->GetWidth();
 
-		if (0 <= nextPos.x && width > nextPos.x && 0 <= nextPos.y && height > nextPos.y) {
+		if (0 <= nextPos.x && height > nextPos.x && 0 <= nextPos.y && width > nextPos.y) {
 			return true;
 		}
 
@@ -189,7 +189,8 @@ namespace jh {
 
 		Node<SnakeBody*>* body = bodies.GetHead();
 
-		while (body) {
+		int a = 10;
+		while (body != nullptr) {
 			snakePositions.push_back(body->data->GetPosition());
 			body = body->next;
 		}
@@ -201,5 +202,14 @@ namespace jh {
 	{
 		item->ApplyEffect(this);
 	}
+
+	/*std::vector<math::Vector2> Snake::GetAllPositions()
+	{
+		std::vector<math::Vector2> allBody = this->GetBodyPositions();
+
+		allBody.push_back(this->GetSnakeHead()->GetPosition());
+
+		return allBody;
+	}*/
 
 }

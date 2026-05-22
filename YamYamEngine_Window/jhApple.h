@@ -6,7 +6,7 @@ namespace jh {
 	{
 	public :
 		
-		void OnEaten(Snake* snake) override;
+		Item* OnEaten(Snake* snake) override;
 		void ApplyEffect(Snake* snake) override;
 
 		void Initialize() override;
@@ -16,6 +16,9 @@ namespace jh {
 
 		eItemType GetItemType() override;
 
+		math::Vector2 GetSpawnPosition(Snake* snake) override;
+
+		void Spawn(math::Vector2 position);
 
 	private :
 

@@ -111,11 +111,14 @@ namespace jh {
 
 	void PlayScene::Collision(Snake* snake, Item* item)
 	{
+		// 아이템 자신의 변화
+		Item* newItem = item->OnEaten(snake);
 		// 뱀 자신의 변화
 		// 뱀 길이 증가
 		snake->OnEat(item);
-		// 아이템 자신의 변화
-		item->OnEaten(snake);
+
+		itemManager->AddItem(newItem);
+		itemManager->DeleteItem(item);
 	}
 		
 }

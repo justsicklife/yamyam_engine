@@ -51,6 +51,8 @@ namespace jh {
 		std::vector<math::Vector2> GetBodyPositions();
 
 		void OnEat(Item* item);
+
+		//std::vector<math::Vector2> GetAllPositions();
 	public:
 		bool isMoving;
 	private:
