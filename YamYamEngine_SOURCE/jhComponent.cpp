@@ -1,7 +1,8 @@
 #include "jhComponent.h"
 
 namespace jh {
-	Component::Component()
+	Component::Component(enums::eComponentType type)
+		: mType(type)
 	{
 	}
 	Component::~Component()

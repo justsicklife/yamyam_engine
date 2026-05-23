@@ -27,6 +27,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jhResources.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhScene.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhSceneManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhScript.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhSpriteRenderer.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhTexture.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhTime.h" />
@@ -44,6 +45,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jhResource.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhResources.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhScene.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhScript.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhSpriteRenderer.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhTexture.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhTime.cpp" />

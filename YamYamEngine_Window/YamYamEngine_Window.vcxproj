@@ -139,11 +139,13 @@
     <ClInclude Include="jhLoadResources.h" />
     <ClInclude Include="jhLoadScene.h" />
     <ClInclude Include="jhPlayer.h" />
+    <ClInclude Include="jhPlayerScript.h" />
     <ClInclude Include="jhPlayScene.h" />
     <ClInclude Include="jhTitleScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="jhPlayer.cpp" />
+    <ClCompile Include="jhPlayerScript.cpp" />
     <ClCompile Include="jhPlayScene.cpp" />
     <ClCompile Include="jhTitleScene.cpp" />
   </ItemGroup>

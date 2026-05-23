@@ -8,6 +8,7 @@
 #include "jhObject.h"
 #include "jhTexture.h"
 #include "jhResources.h"
+#include "jhPlayerScript.h"
 
 namespace jh {
 
@@ -28,10 +29,11 @@ namespace jh {
 		
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			
-			graphcis::Texture* bg = Resources::Find<graphcis::Texture>(L"BG");
+			bg->AddComponent<PlayerScript>();
 
-			sr->SetTexture(bg);
+			graphcis::Texture* bgTex = Resources::Find<graphcis::Texture>(L"BG");
 
+			sr->SetTexture(bgTex);
 		}
 	}
 
