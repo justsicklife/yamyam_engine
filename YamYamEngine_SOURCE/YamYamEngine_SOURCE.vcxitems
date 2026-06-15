@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)CommonInclude.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhApplication.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhCamera.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhComponent.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhEntity.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)jhGameObject.h" />
@@ -36,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)jhApplication.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhCamera.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhComponent.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhEntity.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)jhGameObject.cpp" />

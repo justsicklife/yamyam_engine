@@ -7,6 +7,7 @@ namespace jh::enums {
 		Transform,
 		SpriteRenderer,
 		Script,
+		Camera,
 		End,
 	};
 

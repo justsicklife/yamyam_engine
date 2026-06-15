@@ -9,6 +9,7 @@
 #include "jhTexture.h"
 #include "jhResources.h"
 #include "jhPlayerScript.h"
+#include "jhCamera.h"
 
 namespace jh {
 
@@ -22,6 +23,11 @@ namespace jh {
 
 	void PlayScene::Initialize() {
 		{
+			// main Camera
+			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
+			camera->AddComponent<Camera>();
+			camera->AddComponent<PlayerScript>();
+
 			// 게임 오브젝트 만들기 전에 리소스들 전부 Load 해두면 좋다.
 
 			bg = object::Instantiate<Player>
@@ -29,7 +35,7 @@ namespace jh {
 		
 			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
 			
-			bg->AddComponent<PlayerScript>();
+			//bg->AddComponent<PlayerScript>();
 
 			graphcis::Texture* bgTex = Resources::Find<graphcis::Texture>(L"BG");
 
