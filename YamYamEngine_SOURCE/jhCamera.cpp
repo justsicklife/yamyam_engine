@@ -1,17 +1,19 @@
 #include "jhCamera.h"
 #include "jhGameObject.h"
 #include "jhTransform.h"
+#include "jhApplication.h"
+
+extern jh::Application application;
 
 namespace jh {
 
 	Camera::Camera()
 		:Component(enums::eComponentType::Camera)
 		, mDistance(Vector2::Zero)
-		, mResolution(Vector2(1600.0f, 900.0f))
+		, mResolution(Vector2::Zero)
 		, mLookPosition(Vector2::Zero)
 		, mTarget(nullptr)
 	{
-
 	}
 
 	Camera::~Camera()
@@ -20,6 +22,8 @@ namespace jh {
 
 	void Camera::Initialize()
 	{
+		mResolution.x = application.GetWidth();
+		mResolution.y = application.GetHeight();
 	}
 
 	void Camera::Update()

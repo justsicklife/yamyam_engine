@@ -7,6 +7,7 @@ namespace jh
 {
 	void LoadResouces()
 	{
-		Resources::Load<graphcis::Texture>(L"BG", L"D:/WinProj/YamYamEngine/Resources/CloudOcean.png");
+		Resources::Load<graphcis::Texture>(L"Map", L"D:../Resources/img/map/map_pure.png");
+		Resources::Load<graphcis::Texture>(L"PacMan", L"../Resources/img/pacman/0.png");
 	}
 }	

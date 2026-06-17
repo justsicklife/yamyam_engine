@@ -52,6 +52,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jhCamera.cpp">
       <Filter>Component\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhRenderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)jhSceneManager.h">
@@ -114,6 +117,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jhCamera.h">
       <Filter>Component\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhRenderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">
@@ -154,6 +160,9 @@
     </Filter>
     <Filter Include="Component\Camera">
       <UniqueIdentifier>{a3693c9a-d529-4afc-81b7-cedf3ebd3997}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{6f51153f-60ac-4a29-88a7-658cdc62532a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

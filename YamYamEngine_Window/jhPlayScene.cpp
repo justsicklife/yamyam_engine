@@ -10,6 +10,7 @@
 #include "jhResources.h"
 #include "jhPlayerScript.h"
 #include "jhCamera.h"
+#include "jhRenderer.h"
 
 namespace jh {
 
@@ -24,22 +25,44 @@ namespace jh {
 	void PlayScene::Initialize() {
 		{
 			// main Camera
-			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None);
-			camera->AddComponent<Camera>();
-			camera->AddComponent<PlayerScript>();
+			GameObject* camera = object::Instantiate<GameObject>(enums::eLayerType::None,Vector2(344.0f,442.0f));
+			Camera* cameraComp = camera->AddComponent<Camera>();
+			renderer::mainCamera = cameraComp;
+
+			//camera->AddComponent<PlayerScript>();
 
 			// 게임 오브젝트 만들기 전에 리소스들 전부 Load 해두면 좋다.
 
-			bg = object::Instantiate<Player>
-				(enums::eLayerType::BackGround,Vector2(100.0f,100.0f));
+			mPlayer = object::Instantiate<Player>
+				(enums::eLayerType::Player);
 		
-			SpriteRenderer* sr = bg->AddComponent<SpriteRenderer>();
+			mPlayer->AddComponent<PlayerScript>();
+
+			SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
 			
-			//bg->AddComponent<PlayerScript>();
+			sr->SetSize(Vector2(3.0f, 3.0f));
 
-			graphcis::Texture* bgTex = Resources::Find<graphcis::Texture>(L"BG");
+			//mPlayer->AddComponent<PlayerScript>();
 
-			sr->SetTexture(bgTex);
+			graphcis::Texture* packmanTexture = Resources::Find<graphcis::Texture>(L"PacMan");
+
+			sr->SetTexture(packmanTexture);
+		
+			//
+			GameObject* bg = object::Instantiate<Player>
+				(enums::eLayerType::BackGround);
+
+			SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
+
+			bgSr->SetSize(Vector2(3.0f, 3.0f));
+
+			//mPlayer->AddComponent<PlayerScript>();
+
+			graphcis::Texture* bgTexture = Resources::Find<graphcis::Texture>(L"Map");
+
+			bgSr->SetTexture(bgTexture);
+		
+			Scene::Initialize();
 		}
 	}
 
@@ -68,7 +91,7 @@ namespace jh {
 	void PlayScene::OnExit()
 	{
 		//Transform* tr
-		//	= bg->GetComponent<Transform>();
+		//	= mPlayer->GetComponent<Transform>();
 		//tr->SetPosition(Vector2(0, 0));
 	}
 		

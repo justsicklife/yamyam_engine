@@ -2,6 +2,8 @@
 #include "jhTransform.h"
 #include "jhGameObject.h"
 #include "jhTexture.h"
+#include "jhRenderer.h"
+#include "jhCamera.h"
 
 namespace jh {
 
@@ -38,6 +40,8 @@ namespace jh {
 		Transform* tr = GetOwner()->GetComponent<Transform>();
 		
 		Vector2 pos = tr->GetPosition();
+
+		pos = renderer::mainCamera->CaluatePosition(pos);
 
 		if (mTexture->GetTextureType()
 			== graphcis::Texture::eTextureType::Bmp) {
