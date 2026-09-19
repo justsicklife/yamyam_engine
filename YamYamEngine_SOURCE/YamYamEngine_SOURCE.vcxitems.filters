@@ -55,6 +55,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)jhRenderer.cpp">
       <Filter>Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhAnimator.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)jhAnimation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)jhSceneManager.h">
@@ -120,6 +122,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)jhRenderer.h">
       <Filter>Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhAnimator.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)jhAnimation.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Scene">

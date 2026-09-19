@@ -6,6 +6,7 @@ namespace jh::enums {
 	{
 		Transform,
 		SpriteRenderer,
+		Animator,
 		Script,
 		Camera,
 		End,
@@ -23,6 +24,7 @@ namespace jh::enums {
 	enum class eResourceType {
 		Textrue,
 		AudioClip,
+		Animation,
 		Prefab,
 		End,
 	};

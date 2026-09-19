@@ -1,6 +1,8 @@
 #pragma once
 #include "CommonInclude.h"
 
+using namespace jh::math;
+
 namespace jh {
 	// 엔진 안에서 관리되는 모든 객체의 최소 단위
 	class Entity {
