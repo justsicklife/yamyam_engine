@@ -1,5 +1,10 @@
 #include "jhAnimation.h"
 #include "jhTime.h"
+#include "jhTransform.h"
+#include "jhGameObject.h"
+#include "jhAnimator.h"
+#include "jhRenderer.h"
+#include "jhCamera.h"
 
 namespace jh {
 	Animation::Animation()
@@ -20,7 +25,7 @@ namespace jh {
 		mTime += Time::DeltaTime();
 
 		if (mAnimationSheet[mIndex].duration < mTime) {
-			if (mIndex < mAnimationSheet.size() - 1) {
+			if (mIndex < mAnimationSheet.size() -1 ) {
 				mIndex++;
 			}
 			else {
@@ -30,6 +35,40 @@ namespace jh {
 	}
 
 	void Animation::Render(HDC hdc) {
+		// 알파 블렌드를 쓸수 있는 조건 : 해당이미지 알파 채널이 있어야한다.
+
+		if (mTexture == nullptr) {
+			return;
+		}
+
+		GameObject* gameObj = mAnimator->GetOwner();
+		Transform* tr = gameObj->GetComponent<Transform>();
+		Vector2 pos = tr->GetPosition();
+
+		if (renderer::mainCamera) {
+			pos = renderer::mainCamera->CaluatePosition(pos);
+		}
+
+		BLENDFUNCTION func = {};
+		func.BlendOp = AC_SRC_OVER;
+		func.BlendFlags = 0;
+		func.AlphaFormat = AC_SRC_ALPHA;
+		func.SourceConstantAlpha = 255;
+		
+		Sprite sprite = mAnimationSheet[mIndex];
+
+		HDC imgHdc = mTexture->GetHdc();
+
+		AlphaBlend(hdc
+			, pos.x, pos.y
+			, sprite.size.x * 5
+			, sprite.size.y * 5
+			, imgHdc
+			, sprite.leftTop.x
+			, sprite.leftTop.y
+			, sprite.size.x
+			, sprite.size.y
+			, func);
 
 	}
 
@@ -46,7 +85,18 @@ namespace jh {
 		UINT spriteLength,
 		float duration
 	) {
-
+		mTexture = spriteSheet;
+		for (size_t i = 0; i < spriteLength; i++) {
+			Sprite sprite = {};
+			sprite.leftTop.x = leftTop.x + (size.x * i);
+			sprite.leftTop.y = leftTop.y;
+			sprite.size = size;
+			sprite.offset = offset;
+			sprite.duration = duration;
+			
+			mAnimationSheet.push_back(sprite);
+		}
+		
 	}
 
 	void Animation::Reset() {

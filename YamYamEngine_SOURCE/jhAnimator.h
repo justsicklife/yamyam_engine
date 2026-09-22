@@ -27,13 +27,15 @@ namespace jh {
 			 float duration
 		 );
 		 
-		 Animation& FindAnimation(const std::wstring& name);
+		 Animation* FindAnimation(const std::wstring& name);
 		 void PlayAnimation(const std::wstring& name,bool loop = true);
 
 		 //PlayAnimation(L"move", false);	
 
 	private:
+		// 애니메이션을 map 으로 가지고있는 변수
 		std::map<std::wstring, Animation*> mAnimations;
+		// 선택된 애니메이션		
 		Animation* mActiveAnimation;
 		bool mbLoop;
 	};

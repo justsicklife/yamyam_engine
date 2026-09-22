@@ -11,6 +11,7 @@
 #include "jhPlayerScript.h"
 #include "jhCamera.h"
 #include "jhRenderer.h"
+#include "jhAnimator.h"
 
 namespace jh {
 
@@ -38,30 +39,56 @@ namespace jh {
 		
 			mPlayer->AddComponent<PlayerScript>();
 
-			SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-			
-			sr->SetSize(Vector2(3.0f, 3.0f));
+			Transform* playerTr = mPlayer->GetComponent<Transform>();
 
-			//mPlayer->AddComponent<PlayerScript>();
+			playerTr->SetPosition(Vector2(10.0f,10.0f));
 
-			graphcis::Texture* packmanTexture = Resources::Find<graphcis::Texture>(L"PacMan");
+			Animator* animator = mPlayer->AddComponent<Animator>();
 
-			sr->SetTexture(packmanTexture);
-		
+			graphcis::Texture* chickenTexture = Resources::Find<graphcis::Texture>(L"Chicken");
+
+			animator->CreateAnimation(
+				L"ChickenLeftMove", chickenTexture,
+				Vector2(0.0f, 0.0f), Vector2(16.0f, 16.0f),
+				Vector2::Zero,
+				4, 0.5f
+			);
+
+			animator->PlayAnimation(L"ChickenLeftMove",true);
+
+			//SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
 			//
-			GameObject* bg = object::Instantiate<Player>
+			//sr->SetSize(Vector2(3.0f, 3.0f));
+
+			//graphcis::Texture* pacmanTextrue = Resources::Find<graphcis::Texture>(L"PacMan");
+
+			//sr->SetTexture(pacmanTextrue);
+
+			//graphcis::Texture* packmanTexture = Resources::Find<graphcis::Texture>(L"PacMan");
+
+			//sr->SetTexture(packmanTexture);
+		
+			/*GameObject* bg = object::Instantiate<Player>
 				(enums::eLayerType::BackGround);
 
 			SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
 
 			bgSr->SetSize(Vector2(3.0f, 3.0f));
 
-			//mPlayer->AddComponent<PlayerScript>();
-
-			graphcis::Texture* bgTexture = Resources::Find<graphcis::Texture>(L"Map");
+			graphcis::Texture* bgTexture = Resources::Find<graphcis::Texture>(L"Chicken");
 
 			bgSr->SetTexture(bgTexture);
+
+			GameObject* chicken = object::Instantiate<Player>(enums::eLayerType::BackGround);*/
 		
+			// chicken
+			//SpriteRenderer* chickenSr = chicken->AddComponent<SpriteRenderer>();
+
+			//graphcis::Texture* chickenTexture = Resources::Find<graphcis::Texture>(L"Chicken");
+
+			//chickenSr->SetTexture(chickenTexture);
+
+
 			Scene::Initialize();
 		}
 	}
@@ -96,3 +123,6 @@ namespace jh {
 	}
 		
 }
+
+
+//25Ка

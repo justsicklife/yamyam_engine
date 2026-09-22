@@ -7,7 +7,9 @@ namespace jh
 {
 	void LoadResouces()
 	{
-		Resources::Load<graphcis::Texture>(L"Map", L"D:../Resources/img/map/map_pure.png");
+		Resources::Load<graphcis::Texture>(L"Map", L"../Resources/img/map/map_pure.png");
 		Resources::Load<graphcis::Texture>(L"PacMan", L"../Resources/img/pacman/0.png");
+		Resources::Load<graphcis::Texture>(L"Chicken", L"../Resources/chicken.bmp");
+
 	}
 }	

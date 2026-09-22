@@ -50,6 +50,7 @@ namespace jh::graphcis {
 			DeleteObject(oldBitmap);
 
 		}
+		// png 일때
 		else if (ext == L"png") {
 			mType = eTextureType::Png;
 			mImage = Gdiplus::Image::FromFile(path.c_str());
@@ -59,12 +60,9 @@ namespace jh::graphcis {
 			mWidth = mImage->GetWidth();
 			mHeight = mImage->GetHeight();
 
-			return true;
 		}
 
-		// png 일때
-
-		return false;
+		return true;
 	}
 
 }
