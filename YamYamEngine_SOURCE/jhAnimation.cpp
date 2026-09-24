@@ -25,6 +25,7 @@ namespace jh {
 		mTime += Time::DeltaTime();
 
 		if (mAnimationSheet[mIndex].duration < mTime) {
+			mTime = 0;
 			if (mIndex < mAnimationSheet.size() -1 ) {
 				mIndex++;
 			}

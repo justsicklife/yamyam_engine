@@ -49,45 +49,12 @@ namespace jh {
 
 			animator->CreateAnimation(
 				L"ChickenLeftMove", chickenTexture,
-				Vector2(0.0f, 0.0f), Vector2(16.0f, 16.0f),
+				Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f),
 				Vector2::Zero,
 				4, 0.5f
 			);
 
 			animator->PlayAnimation(L"ChickenLeftMove",true);
-
-			//SpriteRenderer* sr = mPlayer->AddComponent<SpriteRenderer>();
-			//
-			//sr->SetSize(Vector2(3.0f, 3.0f));
-
-			//graphcis::Texture* pacmanTextrue = Resources::Find<graphcis::Texture>(L"PacMan");
-
-			//sr->SetTexture(pacmanTextrue);
-
-			//graphcis::Texture* packmanTexture = Resources::Find<graphcis::Texture>(L"PacMan");
-
-			//sr->SetTexture(packmanTexture);
-		
-			/*GameObject* bg = object::Instantiate<Player>
-				(enums::eLayerType::BackGround);
-
-			SpriteRenderer* bgSr = bg->AddComponent<SpriteRenderer>();
-
-			bgSr->SetSize(Vector2(3.0f, 3.0f));
-
-			graphcis::Texture* bgTexture = Resources::Find<graphcis::Texture>(L"Chicken");
-
-			bgSr->SetTexture(bgTexture);
-
-			GameObject* chicken = object::Instantiate<Player>(enums::eLayerType::BackGround);*/
-		
-			// chicken
-			//SpriteRenderer* chickenSr = chicken->AddComponent<SpriteRenderer>();
-
-			//graphcis::Texture* chickenTexture = Resources::Find<graphcis::Texture>(L"Chicken");
-
-			//chickenSr->SetTexture(chickenTexture);
-
 
 			Scene::Initialize();
 		}
