@@ -18,6 +18,8 @@ namespace jh::enums {
 		// Tree
 		// character
 		Player,
+		Particle,
+		Effect,
 		Max = 16,
 	};
 

@@ -41,6 +41,9 @@ namespace jh {
 		
 		Vector2 pos = tr->GetPosition();
 
+		float rot = tr->GetRotation();
+		Vector2 scale = tr->GetScale();
+
 		pos = renderer::mainCamera->CaluatePosition(pos);
 
 		if (mTexture->GetTextureType()
@@ -59,12 +62,29 @@ namespace jh {
 		} 
 		else if (mTexture->GetTextureType()
 			== graphcis::Texture::eTextureType::Png) {
-			Gdiplus::Graphics graphcis(hdc);
-			graphcis.DrawImage(mTexture->GetImage()
-				, Gdiplus::Rect(pos.x, pos.y,
-					mTexture->GetWidth() * mSize.x,
-					mTexture->GetHeight() * mSize.y
-				));
+			// 내가 원하는 픽셀을 투명화 시킬때
+			Gdiplus::ImageAttributes imgAtt = {};
+
+			// 투명화 시킬 픽셀의 색 범위
+			imgAtt.SetColorKey(Gdiplus::Color(100, 100, 100), Gdiplus::Color(255, 255, 255));
+
+			Gdiplus::Graphics graphics(hdc);
+			
+			graphics.RotateTransform(rot);
+
+			graphics.DrawImage(mTexture->GetImage(),
+				Gdiplus::Rect
+				(
+					pos.x, pos.y
+					, mTexture->GetWidth() * mSize.x * scale.x
+					, mTexture->GetHeight() * mSize.y * scale.y
+				)
+				, 0, 0
+				, mTexture->GetWidth()
+				, mTexture->GetHeight()
+				, Gdiplus::UnitPixel
+				, nullptr
+			);
 		}
 
 	}
