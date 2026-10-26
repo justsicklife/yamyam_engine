@@ -12,10 +12,12 @@
 #include "jhCamera.h"
 #include "jhRenderer.h"
 #include "jhAnimator.h"
+#include "jhCat.h"
+#include "jhCatScript.h"
 
 namespace jh {
 
-	PlayScene::PlayScene() {
+	PlayScene::PlayScene() : mPlayer(nullptr) {
 
 	}
 
@@ -38,7 +40,7 @@ namespace jh {
 				(enums::eLayerType::Player);
 
 			mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
-			mPlayer->GetComponent<Transform>()->SetRotation(30.0f);
+			mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f,100.0f));
 
 			mPlayer->AddComponent<PlayerScript>();
 
@@ -94,33 +96,68 @@ namespace jh {
 
 			animator->PlayAnimation(L"SitDown",false);
 
-			GameObject* bubble = object::Instantiate<GameObject>(enums::eLayerType::Particle, Vector2(0.0f, 0.0f));
+			/// Cat
+			Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
 
-			SpriteRenderer* bubbleSr =  bubble->AddComponent<SpriteRenderer>();
+			cat->AddComponent<CatScript>();
+			
+			Animator* catAnimator = cat->AddComponent<Animator>();
 
-			graphcis::Texture* bubbleTexture = Resources::Find<graphcis::Texture>(L"Bubble");
-
-			bubbleSr->SetTexture(bubbleTexture);
-
-			bubble->GetComponent<Transform>()->SetPosition(Vector2(100.0f,100.0f));
-
-			GameObject* effect = object::Instantiate<GameObject>(enums::eLayerType::Effect, Vector2(0.0f, 0.0f));
-
-			graphcis::Texture* effectTexture = Resources::Find<graphcis::Texture>(L"Effect");
-
-			Animator* animEffect = effect->AddComponent<Animator>();
-
-			animEffect->CreateAnimation(
-				L"MapleEffect"
-				,effectTexture
-				,Vector2(0.0f,0.0f)
-				,Vector2(386.0f,246.0f)
-				,Vector2(0.0f,0.0f)
-				,8
-				,0.1f
+			catAnimator->CreateAnimation(
+				L"DownWalk", catTexture,
+				Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f),
+				Vector2::Zero,
+				4, 0.5f
 			);
 
-			animEffect->PlayAnimation(L"MapleEffect");
+			catAnimator->CreateAnimation(
+				L"RightWalk", catTexture,
+				Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f),
+				Vector2::Zero,
+				4, 0.5f
+			);
+
+			catAnimator->CreateAnimation(
+				L"UpWalk", catTexture,
+				Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f),
+				Vector2::Zero,
+				4, 0.5f
+			);
+
+			catAnimator->CreateAnimation(
+				L"LeftWalk", catTexture,
+				Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f),
+				Vector2::Zero,
+				4, 0.5f
+			);
+
+			catAnimator->CreateAnimation(
+				L"SitDown", catTexture,
+				Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f),
+				Vector2::Zero,
+				4, 0.5f
+			);
+
+			catAnimator->CreateAnimation(
+				L"Grooming", catTexture,
+				Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f),
+				Vector2::Zero,
+				4, 0.5f
+			);
+
+			catAnimator->CreateAnimation(
+				L"LayDown", catTexture,
+				Vector2(0.0f, 192.0f), Vector2(32.0f, 32.0f),
+				Vector2::Zero,
+				4, 0.5f
+			);
+
+			catAnimator->PlayAnimation(L"SitDown", false);
+
+			cat->GetComponent<Transform>()->SetPosition(Vector2(200.0f,200.0f));
+
+			cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
+
 
 			Scene::Initialize();
 		}

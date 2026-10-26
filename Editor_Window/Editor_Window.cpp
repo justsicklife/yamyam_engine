@@ -3,6 +3,7 @@
 
 #include "framework.h"
 #include "Editor_Window.h"
+#include <cstdlib>
 
 //#pragma comment (lib,"..\\x64\\Debug\\YamYamEngine_Window.lib")
 
@@ -151,6 +152,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    // load scenes
    jh::LoadResouces();
    jh::LoadScenes();
+
+   int a = 0;
+   srand(unsigned int(&a));
 
    return TRUE;
 }

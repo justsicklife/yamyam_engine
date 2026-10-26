@@ -17,6 +17,7 @@ namespace jh::enums {
 		BackGround,
 		// Tree
 		// character
+		Animal,
 		Player,
 		Particle,
 		Effect,
