@@ -13,6 +13,7 @@ namespace jh
 		Resources::Load<graphcis::Texture>(L"Cat", L"../Resources/Cat.bmp");
 		Resources::Load<graphcis::Texture>(L"Bubble", L"../Resources/Bubble.png");
 		Resources::Load<graphcis::Texture>(L"Effect", L"../Resources/MapleEffect.png");
+		Resources::Load<graphcis::Texture>(L"Player", L"../Resources/Player.bmp");
 
 	}
 }	

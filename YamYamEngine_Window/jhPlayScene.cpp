@@ -46,55 +46,26 @@ namespace jh {
 
 			Transform* playerTr = mPlayer->GetComponent<Transform>();
 
+			graphcis::Texture* playerTexture = Resources::Find<graphcis::Texture>(L"Player");
+
 			playerTr->SetPosition(Vector2(10.0f,10.0f));
 
-			Animator* animator = mPlayer->AddComponent<Animator>();
+			Animator* playerAnimator = mPlayer->AddComponent<Animator>();
 
-			graphcis::Texture* catTexture = Resources::Find<graphcis::Texture>(L"Cat");
-
-			animator->CreateAnimation(
-				L"DownWalk", catTexture,
-				Vector2(0.0f, 0.0f), Vector2(32.0f, 32.0f),
-				Vector2::Zero,
-				4, 0.5f
+			playerAnimator->CreateAnimation(
+				L"Idle",
+				playerTexture,
+				Vector2(2000.0f, 250.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 1, 0.1f
 			);
 
-			animator->CreateAnimation(
-				L"RightWalk", catTexture,
-				Vector2(0.0f, 32.0f), Vector2(32.0f, 32.0f),
-				Vector2::Zero,
-				4, 0.5f
+			playerAnimator->CreateAnimation(
+				L"FrontGiveWater",
+				playerTexture,
+				Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.1f
 			);
 
-			animator->CreateAnimation(
-				L"UpWalk", catTexture,
-				Vector2(0.0f, 64.0f), Vector2(32.0f, 32.0f),
-				Vector2::Zero,
-				4, 0.5f
-			);
-
-			animator->CreateAnimation(
-				L"LeftWalk", catTexture,
-				Vector2(0.0f, 96.0f), Vector2(32.0f, 32.0f),
-				Vector2::Zero,
-				4, 0.5f
-			);
-
-			animator->CreateAnimation(
-				L"SitDown", catTexture,
-				Vector2(0.0f, 128.0f), Vector2(32.0f, 32.0f),
-				Vector2::Zero,
-				4, 0.5f
-			);
-
-			animator->CreateAnimation(
-				L"Grooming	", catTexture,
-				Vector2(0.0f, 160.0f), Vector2(32.0f, 32.0f),
-				Vector2::Zero,
-				4, 0.5f
-			);
-
-			animator->PlayAnimation(L"SitDown",false);
+			playerAnimator->PlayAnimation(L"Idle", false);
+			
 
 			/// Cat
 			Cat* cat = object::Instantiate<Cat>(enums::eLayerType::Animal);
@@ -102,6 +73,8 @@ namespace jh {
 			cat->AddComponent<CatScript>();
 			
 			Animator* catAnimator = cat->AddComponent<Animator>();
+
+			graphcis::Texture* catTexture = Resources::Find<graphcis::Texture>(L"Cat");
 
 			catAnimator->CreateAnimation(
 				L"DownWalk", catTexture,

@@ -7,7 +7,7 @@
 
 namespace jh {
 	PlayerScript::PlayerScript()
-		: mState(jh::PlayerScript::eState::SitDown)
+		: mState(jh::PlayerScript::eState::Idle)
 		, mAnimator(nullptr)
 	{
 	}
@@ -25,13 +25,16 @@ namespace jh {
 
 		switch (mState)
 		{
-		case jh::PlayerScript::eState::SitDown:
-			sitDown();
+		case jh::PlayerScript::eState::Idle:
+			idle();
 			break;
 		case jh::PlayerScript::eState::Walk:
 			move();
 			break;
 		case jh::PlayerScript::eState::Sleep:
+			break;
+		case jh::PlayerScript::eState::GiveWater:
+			giveWater();
 			break;
 		case jh::PlayerScript::eState::Attack:
 			break;
@@ -45,24 +48,34 @@ namespace jh {
 	void PlayerScript::Render(HDC hdc)
 	{
 	}
-	void PlayerScript::sitDown()
+	void PlayerScript::idle()
 	{
-		if (Input::GetKey(eKeyCode::Right)) {
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"RightWalk");
+
+		if (Input::GetKey(eKeyCode::LButton)) 
+		{
+			mState = PlayerScript::eState::GiveWater;
+			mAnimator->PlayAnimation(L"FrontGiveWater",false);
+
+			Vector2 mousePos = Input::GetMousePosition();
+			int a = 0;
 		}
-		if (Input::GetKey(eKeyCode::Left)) {
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"LeftWalk");
-		}
-		if (Input::GetKey(eKeyCode::Up)) {
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"UpWalk");
-		}
-		if (Input::GetKey(eKeyCode::Down)) {
-			mState = PlayerScript::eState::Walk;
-			mAnimator->PlayAnimation(L"DownWalk");
-		}
+
+		//if (Input::GetKey(eKeyCode::Right)) {
+		//	mState = PlayerScript::eState::Walk;
+		//	mAnimator->PlayAnimation(L"RightWalk");
+		//}
+		//if (Input::GetKey(eKeyCode::Left)) {
+		//	mState = PlayerScript::eState::Walk;
+		//	mAnimator->PlayAnimation(L"LeftWalk");
+		//}
+		//if (Input::GetKey(eKeyCode::Up)) {
+		//	mState = PlayerScript::eState::Walk;
+		//	mAnimator->PlayAnimation(L"UpWalk");
+		//}
+		//if (Input::GetKey(eKeyCode::Down)) {
+		//	mState = PlayerScript::eState::Walk;
+		//	mAnimator->PlayAnimation(L"DownWalk");
+		//}
 	
 	}
 	void PlayerScript::move()
@@ -91,8 +104,16 @@ namespace jh {
 			|| Input::GetKeyUp(eKeyCode::Up) 
 			|| Input::GetKeyUp(eKeyCode::Down)
 			) {
-			mState = PlayerScript::eState::SitDown;
+			mState = PlayerScript::eState::Idle;
 			mAnimator->PlayAnimation(L"SitDown",false);
+		}
+	}
+	void PlayerScript::giveWater()
+	{
+		if (mAnimator->IsComplete()) 
+		{
+			mState = eState::Idle;
+			mAnimator->PlayAnimation(L"Idle", false);
 		}
 	}
 }
