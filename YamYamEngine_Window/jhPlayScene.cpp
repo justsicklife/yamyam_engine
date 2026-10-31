@@ -42,7 +42,7 @@ namespace jh {
 			mPlayer->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 			mPlayer->GetComponent<Transform>()->SetPosition(Vector2(100.0f,100.0f));
 
-			mPlayer->AddComponent<PlayerScript>();
+			PlayerScript* plScript = mPlayer->AddComponent<PlayerScript>();
 
 			Transform* playerTr = mPlayer->GetComponent<Transform>();
 
@@ -64,7 +64,10 @@ namespace jh {
 				Vector2(0.0f, 2000.0f), Vector2(250.0f, 250.0f), Vector2::Zero, 12, 0.1f
 			);
 
+			playerAnimator->GetCompleteEvent(L"FrontGiveWater") = std::bind(&PlayerScript::AttackEffect, plScript);
+
 			playerAnimator->PlayAnimation(L"Idle", false);
+
 			
 
 			/// Cat
@@ -131,7 +134,8 @@ namespace jh {
 
 			cat->GetComponent<Transform>()->SetScale(Vector2(2.0f, 2.0f));
 
-
+			cameraComp->SetTarget(cat);
+				
 			Scene::Initialize();
 		}
 	}
